@@ -1,0 +1,122 @@
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\appsettings.Development.json
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\appsettings.json
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\MyStore.exe
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\MyStore.deps.json
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\MyStore.runtimeconfig.json
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\MyStore.runtimeconfig.dev.json
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\MyStore.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\MyStore.pdb
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.OpenApi.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.csproj.AssemblyReference.cache
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.GeneratedMSBuildEditorConfig.editorconfig
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.AssemblyInfoInputs.cache
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.AssemblyInfo.cs
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.csproj.CoreCompileInputs.cache
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.MvcApplicationPartsAssemblyInfo.cs
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.MvcApplicationPartsAssemblyInfo.cache
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\staticwebassets\MyStore.StaticWebAssets.Manifest.cache
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\scopedcss\bundle\MyStore.styles.css
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.RazorTargetAssemblyInfo.cache
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.csproj.CopyComplete
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.dll
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\ref\MyStore.dll
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.pdb
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\MyStore.genruntimeconfig.cache
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Humanizer.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\Newtonsoft.Json.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\System.Runtime.Caching.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\repo\MyStore\MyStore\bin\Debug\net5.0\ref\MyStore.dll
+F:\repo\MyStore\MyStore\obj\Debug\net5.0\staticwebassets\MyStore.StaticWebAssets.xml
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.csproj.AssemblyReference.cache
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.AssemblyInfoInputs.cache
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.AssemblyInfo.cs
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.csproj.CoreCompileInputs.cache
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\ref\MyStore.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.pdb
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\appsettings.json
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\MyStore.exe
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\MyStore.deps.json
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\MyStore.runtimeconfig.json
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\MyStore.runtimeconfig.dev.json
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\MyStore.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\ref\MyStore.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\MyStore.pdb
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Humanizer.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\staticwebassets\MyStore.StaticWebAssets.Manifest.cache
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\staticwebassets\MyStore.StaticWebAssets.xml
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\scopedcss\bundle\MyStore.styles.css
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.RazorTargetAssemblyInfo.cache
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.csproj.CopyComplete
+C:\Users\Dan Cerba\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.genruntimeconfig.cache

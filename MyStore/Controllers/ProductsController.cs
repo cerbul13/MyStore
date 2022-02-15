@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MyStore.Domain.Entities;
 using MyStore.Services;
 using System;
@@ -14,12 +15,13 @@ namespace MyStore.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private IProductService productService;
+        private readonly IProductService productService;
 
         public ProductsController(IProductService productService)
         {
             this.productService = productService;
         }
+
         // GET: api/<ProductsController>
         [HttpGet]
         public IEnumerable<Product> Get()
@@ -29,10 +31,18 @@ namespace MyStore.Controllers
         }
 
         // GET api/<ProductsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{id:int}")]
+        public ActionResult<Product> GetProduct(int id)
         {
-            return "value";
+            var result = productService.GetById(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return result;
+            }
         }
 
         // POST api/<ProductsController>

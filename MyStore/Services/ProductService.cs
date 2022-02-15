@@ -1,4 +1,5 @@
-﻿using MyStore.Data;
+﻿using Microsoft.AspNetCore.Mvc;
+using MyStore.Data;
 using MyStore.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace MyStore.Services
 {
+
     public interface IProductService
     {
         IEnumerable<Product> GetAllProducts();
+        ActionResult<Product> GetById(int id);
     }
 
     public class ProductService : IProductService
@@ -26,9 +29,9 @@ namespace MyStore.Services
             return productRepository.GetAll();
         }
 
-        //public Product GetById(int id)
-        //{
-        //    return productRepository.GetByID(id);
-        //}
+        public ActionResult<Product> GetById(int id)
+        {
+            return productRepository.GetById(id);
+        }
     }
 }
