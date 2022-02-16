@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyStore.Domain.Entities;
+using MyStore.Models;
 using MyStore.Services;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace MyStore.Controllers
 
         // GET: api/<ProductsController>
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public IEnumerable<ProductModel> Get()
         {
             var productList = productService.GetAllProducts();
             return productList;
@@ -47,8 +48,19 @@ namespace MyStore.Controllers
 
         // POST api/<ProductsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] ProductModel newProduct)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            //failfast -> return
+
+            //productService.Add();
+            var addedProduct = productService.AddProduct(newProduct);
+            
+            return CreatedAtAction("Get", new { id = addedProduct.Productid }, addedProduct);
+            //return CreatedAtAction("Get", newProduct,new { id = newProduct.Productid });
         }
 
         // PUT api/<ProductsController>/5

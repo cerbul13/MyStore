@@ -14,6 +14,7 @@ namespace MyStore.Data
         ///CRUD
         IEnumerable<Product> GetAll();
         ActionResult<Product> GetById(int id);
+        Product Add(Product newProduct);
     }
 
     public class ProductRepository : IProductRepository
@@ -45,6 +46,12 @@ namespace MyStore.Data
             {
                 return null;
             }
+        }
+        public Product Add(Product newProduct)
+        {
+            var addedProduct = context.Products.Add(newProduct);
+            context.SaveChanges();
+            return addedProduct.Entity;
         }
     }
 }

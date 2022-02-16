@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MyStore.Data;
 using MyStore.Domain.Entities;
+using MyStore.Infrastructure;
 using MyStore.Services;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,8 @@ namespace MyStore
                  options => options.UseSqlServer(Configuration.GetConnectionString("StoreDb"))
                 );
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(typeof(ProductProfile));
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
