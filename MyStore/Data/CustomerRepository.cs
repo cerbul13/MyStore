@@ -10,6 +10,8 @@ namespace MyStore.Data
 {
     public interface ICustomerRepository
     {
+        Customer Add(Customer newCustomer);
+
         ///data access code
         ///CRUD
         IEnumerable<Customer> GetAll();
@@ -45,6 +47,12 @@ namespace MyStore.Data
             {
                 return null;
             }
+        }
+        public Customer Add(Customer newCustomer)
+        {
+            var addedCustomer = context.Customers.Add(newCustomer);
+            context.SaveChanges();
+            return addedCustomer.Entity;
         }
     }
 }

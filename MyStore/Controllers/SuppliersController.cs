@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyStore.Domain.Entities;
+using MyStore.Models;
 using MyStore.Services;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace MyStore.Controllers
 
         // GET: api/<SuppliersController>
         [HttpGet]
-        public IEnumerable<Supplier> Get()
+        public IEnumerable<SupplierModel> Get()
         {
             var supplierList = supplierService.GetAllSuppliers();
             return supplierList;

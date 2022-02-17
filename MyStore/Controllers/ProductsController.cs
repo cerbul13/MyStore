@@ -33,7 +33,7 @@ namespace MyStore.Controllers
 
         // GET api/<ProductsController>/5
         [HttpGet("{id:int}")]
-        public ActionResult<Product> GetProduct(int id)
+        public ActionResult<ProductModel> GetProduct(int id)
         {
             var result = productService.GetById(id);
             if (result == null)

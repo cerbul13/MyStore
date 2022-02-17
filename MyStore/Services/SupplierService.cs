@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using MyStore.Data;
 using MyStore.Domain.Entities;
+using MyStore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,27 +13,45 @@ namespace MyStore.Services
 
     public interface ISupplierService
     {
-        IEnumerable<Supplier> GetAllSuppliers();
-        ActionResult<Supplier> GetById(int id);
+        SupplierModel AddSupplier(SupplierModel newSupplier);
+        IEnumerable<SupplierModel> GetAllSuppliers();
+        ActionResult<SupplierModel> GetById(int id);
     }
 
     public class SupplierService : ISupplierService
     {
         private readonly ISupplierRepository supplierRepository;
+        private readonly IMapper mapper;
 
-        public SupplierService(ISupplierRepository supplierRepository)
+        public SupplierService(ISupplierRepository supplierRepository, IMapper mapper)
         {
             this.supplierRepository = supplierRepository;
+            this.mapper = mapper;
         }
 
-        public IEnumerable<Supplier> GetAllSuppliers()
+        public IEnumerable<SupplierModel> GetAllSuppliers()
         {
-            return supplierRepository.GetAll();
+            var allSuppliers = supplierRepository.GetAll().ToList();//List<Product>
+                                                                    //transform domain objects from List<Product> -> List<ProductModel>
+            var supplierModels = mapper.Map<IEnumerable<SupplierModel>>(allSuppliers);
+
+            return supplierModels;
         }
 
-        public ActionResult<Supplier> GetById(int id)
+        public ActionResult<SupplierModel> GetById(int id)
         {
-            return supplierRepository.GetById(id);
+            var supplierToGet = supplierRepository.GetById(id);
+            return mapper.Map<SupplierModel>(supplierToGet);
+        }
+        public SupplierModel AddSupplier(SupplierModel newSupplier)
+        {
+            //Product addedProduct = mapper.Map<Product>(newProduct);
+            //return productRepository.Add(addedProduct);
+
+            Supplier supplierToAdd = mapper.Map<Supplier>(newSupplier);
+            var addedSupplier = supplierRepository.Add(supplierToAdd);
+            newSupplier = mapper.Map<SupplierModel>(addedSupplier);
+            return newSupplier;
         }
     }
 }

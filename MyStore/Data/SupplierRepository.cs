@@ -10,6 +10,8 @@ namespace MyStore.Data
 {
     public interface ISupplierRepository
     {
+        Supplier Add(Supplier newSupplier);
+
         ///data access code
         ///CRUD
         IEnumerable<Supplier> GetAll();
@@ -45,6 +47,12 @@ namespace MyStore.Data
             {
                 return null;
             }
+        }
+        public Supplier Add(Supplier newSupplier)
+        {
+            var addedSupplier = context.Suppliers.Add(newSupplier);
+            context.SaveChanges();
+            return addedSupplier.Entity;
         }
     }
 }

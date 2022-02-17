@@ -13,9 +13,10 @@ namespace MyStore.Services
 
     public interface IProductService
     {
-        IEnumerable<ProductModel> GetAllProducts();
-        ActionResult<Product> GetById(int id);
         ProductModel AddProduct(ProductModel newProduct);
+        IEnumerable<ProductModel> GetAllProducts();
+        ActionResult<ProductModel> GetById(int id);
+        
     }
 
     public class ProductService : IProductService
@@ -36,7 +37,7 @@ namespace MyStore.Services
                                                                   //transform domain objects from List<Product> -> List<ProductModel>
             var productModels = mapper.Map<IEnumerable<ProductModel>>(allProducts);
 
-
+            return productModels;
             //for (int i = 0; i < allProducts.Count(); i++)
             //{
             //    var productModel = new ProductModel();
@@ -59,12 +60,13 @@ namespace MyStore.Services
             //destination.Unitprice = source.Unitprice;
 
 
-            return productModels;
+
         }
 
-        public ActionResult<Product> GetById(int id)
+        public ActionResult<ProductModel> GetById(int id)
         {
-            return productRepository.GetById(id);
+            var productToGet=productRepository.GetById(id);
+            return mapper.Map<ProductModel>(productToGet);
         }
         public ProductModel AddProduct(ProductModel newProduct)
         {
