@@ -14,9 +14,11 @@ namespace MyStore.Services
     public interface IProductService
     {
         ProductModel AddProduct(ProductModel newProduct);
+        bool Delete(int id);
+        bool Exists(int id);
         IEnumerable<ProductModel> GetAllProducts();
-        ActionResult<ProductModel> GetById(int id);
-        
+        ProductModel GetById(int id);
+        void UpdateProduct(ProductModel model);
     }
 
     public class ProductService : IProductService
@@ -63,10 +65,14 @@ namespace MyStore.Services
 
         }
 
-        public ActionResult<ProductModel> GetById(int id)
+        public ProductModel GetById(int id)
         {
             var productToGet=productRepository.GetById(id);
             return mapper.Map<ProductModel>(productToGet);
+        }
+        public bool Exists(int id)
+        {
+            return productRepository.Exists(id);
         }
         public ProductModel AddProduct(ProductModel newProduct)
         {
@@ -77,6 +83,16 @@ namespace MyStore.Services
             var addedProduct = productRepository.Add(productToAdd);
             newProduct = mapper.Map<ProductModel>(addedProduct);
             return newProduct;
+        }
+        public void UpdateProduct(ProductModel model)
+        {
+            Product productToUpdate = mapper.Map<Product>(model);
+            productRepository.Update(productToUpdate);
+        }
+        public bool Delete(int id)
+        {
+            Product itemToDelete = productRepository.GetById(id);
+            return productRepository.Delete(itemToDelete);
         }
     }
 }

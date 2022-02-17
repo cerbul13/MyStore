@@ -42,7 +42,7 @@ namespace MyStore.Controllers
             }
             else
             {
-                return result;
+                return Ok(result);
             }
         }
 

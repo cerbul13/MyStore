@@ -6,6 +6,7 @@ using MyStore.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -42,7 +43,7 @@ namespace MyStore.Controllers
             }
             else
             {
-                return result;
+                return Ok(result);
             }
         }
 
@@ -55,7 +56,6 @@ namespace MyStore.Controllers
                 return BadRequest();
             }
             //failfast -> return
-
             //productService.Add();
             var addedProduct = productService.AddProduct(newProduct);
             
@@ -65,14 +65,38 @@ namespace MyStore.Controllers
 
         // PUT api/<ProductsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [ProducesResponseType(StatusCodes.Status200OK)] //,Type=typeof(Product) daca vreau sa adaug obiectul la return
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type=typeof(Product))]
+        [Consumes(MediaTypeNames.Application.Json)]
+        public IActionResult Put(int id, [FromBody] ProductModel productToUpdate)
         {
+            //exists by 
+            if (id!=productToUpdate.Productid)
+            {
+                return BadRequest();
+            }
+            if (!productService.Exists(id))
+            {
+                return NotFound();
+            }
+            productService.UpdateProduct(productToUpdate);
+            return NoContent();
         }
 
         // DELETE api/<ProductsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            if (!productService.Exists(id))
+            {
+                return NotFound();
+            }
+            productService.Delete(id);
+            return NoContent();
+            //search the object with the id
+            //delete the object
+            //return no content
         }
     }
 }

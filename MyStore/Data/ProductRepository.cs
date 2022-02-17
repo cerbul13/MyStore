@@ -13,8 +13,11 @@ namespace MyStore.Data
         ///data access code
         ///CRUD
         IEnumerable<Product> GetAll();
-        ActionResult<Product> GetById(int id);
+        Product GetById(int id);
         Product Add(Product newProduct);
+        void Update(Product productToUpdate);
+        bool Exists(int id);
+        bool Delete(Product productToDelete);
     }
 
     public class ProductRepository : IProductRepository
@@ -35,11 +38,11 @@ namespace MyStore.Data
         {
             return context.Products.Where(x => x.Categoryid == categoryId).ToList();
         }
-        public ActionResult<Product> GetById(int id)
-        {
+        public Product GetById(int id)
+        {//return context.Products.FirstOrDefault(x=>x.ProductId==id)
             try
             {
-                var result = context.Products.Where(x => x.Productid == id).First();
+                var result = context.Products.FirstOrDefault(x => x.Productid == id);
                 return result;
             }
             catch (ArgumentNullException ex)
@@ -52,6 +55,22 @@ namespace MyStore.Data
             var addedProduct = context.Products.Add(newProduct);
             context.SaveChanges();
             return addedProduct.Entity;
+        }
+        public void Update(Product productToUpdate)
+        {
+            context.Products.Update(productToUpdate);
+            context.SaveChanges();
+        }
+        public bool Exists(int id)
+        {
+            var exists = context.Products.Count(x => x.Productid == id);
+            return exists == 1;
+        }
+        public bool Delete(Product productToDelete)
+        {
+            var deletedItem=context.Products.Remove(productToDelete);
+            context.SaveChanges();
+            return deletedItem != null;
         }
     }
 }
