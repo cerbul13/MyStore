@@ -15,7 +15,10 @@ namespace MyStore.Data
         ///data access code
         ///CRUD
         IEnumerable<Supplier> GetAll();
-        ActionResult<Supplier> GetById(int id);
+        Supplier GetById(int id);
+        void Update(Supplier supplierToUpdate);
+        bool Exists(int id);
+        bool Delete(Supplier supplierToDelete);
     }
 
     public class SupplierRepository : ISupplierRepository
@@ -36,7 +39,7 @@ namespace MyStore.Data
         //{
         //    return context.Suppliers.Where(x => x. == categoryId).ToList();
         //}
-        public ActionResult<Supplier> GetById(int id)
+        public Supplier GetById(int id)
         {
             try
             {
@@ -53,6 +56,22 @@ namespace MyStore.Data
             var addedSupplier = context.Suppliers.Add(newSupplier);
             context.SaveChanges();
             return addedSupplier.Entity;
+        }
+        public void Update(Supplier supplierToUpdate)
+        {
+            context.Suppliers.Update(supplierToUpdate);
+            context.SaveChanges();
+        }
+        public bool Exists(int id)
+        {
+            var exists = context.Suppliers.Count(x => x.Supplierid == id);
+            return exists == 1;
+        }
+        public bool Delete(Supplier supplierToDelete)
+        {
+            var deletedItem=context.Suppliers.Remove(supplierToDelete);
+            context.SaveChanges();
+            return deletedItem != null;
         }
     }
 }

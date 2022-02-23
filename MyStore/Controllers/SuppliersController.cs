@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Mime;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -48,20 +49,54 @@ namespace MyStore.Controllers
 
         // POST api/<SuppliersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] SupplierModel newSupplier)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            //failfast -> return
+            //supplierService.Add();
+            var addedSupplier = supplierService.AddSupplier(newSupplier);
+            
+            return CreatedAtAction("Get", new { id = addedSupplier.Supplierid }, addedSupplier);
+            //return CreatedAtAction("Get", newSupplier,new { id = newSupplier.Supplierid });
         }
 
         // PUT api/<SuppliersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [ProducesResponseType(StatusCodes.Status200OK)] //,Type=typeof(Supplier) daca vreau sa adaug obiectul la return
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type=typeof(SupplierModel))]
+        [Consumes(MediaTypeNames.Application.Json)]
+        public IActionResult Put(int id, [FromBody] SupplierModel supplierToUpdate)
         {
+            //exists by 
+            if (id!=supplierToUpdate.Supplierid)
+            {
+                return BadRequest();
+            }
+            if (!supplierService.Exists(id))
+            {
+                return NotFound();
+            }
+            supplierService.UpdateSupplier(supplierToUpdate);
+            return NoContent();
         }
 
         // DELETE api/<SuppliersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            if (!supplierService.Exists(id))
+            {
+                return NotFound();
+            }
+            supplierService.Delete(id);
+            return NoContent();
+            //search the object with the id
+            //delete the object
+            //return no content
         }
     }
 }

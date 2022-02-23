@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Mime;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -48,20 +49,54 @@ namespace MyStore.Controllers
 
         // POST api/<CustomersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] CustomerModel newCustomer)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            //failfast -> return
+            //customerService.Add();
+            var addedCustomer = customerService.AddCustomer(newCustomer);
+            
+            return CreatedAtAction("Get", new { id = addedCustomer.Custid }, addedCustomer);
+            //return CreatedAtAction("Get", newCustomer,new { id = newCustomer.Customerid });
         }
 
         // PUT api/<CustomersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [ProducesResponseType(StatusCodes.Status200OK)] //,Type=typeof(Customer) daca vreau sa adaug obiectul la return
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type=typeof(CustomerModel))]
+        [Consumes(MediaTypeNames.Application.Json)]
+        public IActionResult Put(int id, [FromBody] CustomerModel customerToUpdate)
         {
+            //exists by 
+            if (id!=customerToUpdate.Custid)
+            {
+                return BadRequest();
+            }
+            if (!customerService.Exists(id))
+            {
+                return NotFound();
+            }
+            customerService.UpdateCustomer(customerToUpdate);
+            return NoContent();
         }
 
         // DELETE api/<CustomersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            if (!customerService.Exists(id))
+            {
+                return NotFound();
+            }
+            customerService.Delete(id);
+            return NoContent();
+            //search the object with the id
+            //delete the object
+            //return no content
         }
     }
 }

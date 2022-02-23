@@ -67,7 +67,7 @@ namespace MyStore.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)] //,Type=typeof(Product) daca vreau sa adaug obiectul la return
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status204NoContent, Type=typeof(Product))]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type=typeof(ProductModel))]
         [Consumes(MediaTypeNames.Application.Json)]
         public IActionResult Put(int id, [FromBody] ProductModel productToUpdate)
         {

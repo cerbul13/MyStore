@@ -1,7 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MyStore",
+    "\\MyStore\\Controllers",
+    "\\MyStore\\Data",
+    "\\MyStore\\Domain",
+    "\\MyStore\\Domain\\Entities",
+    "\\MyStore\\Infrastructure",
+    "\\MyStore\\Models",
+    "\\MyStore\\Services"
   ],
-  "SelectedNode": "\\MyStore.sln",
+  "SelectedNode": "\\MyStore\\Services\\ProductService.cs",
   "PreviewInSolutionExplorer": false
 }

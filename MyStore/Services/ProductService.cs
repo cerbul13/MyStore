@@ -80,8 +80,9 @@ namespace MyStore.Services
             //return productRepository.Add(addedProduct);
 
             Product productToAdd = mapper.Map<Product>(newProduct);
-            var addedProduct = productRepository.Add(productToAdd);
-            newProduct = mapper.Map<ProductModel>(addedProduct);
+            productRepository.Add(productToAdd);
+            //var addedProduct = productRepository.Add(productToAdd);
+            //newProduct = mapper.Map<ProductModel>(addedProduct);
             return newProduct;
         }
         public void UpdateProduct(ProductModel model)

@@ -15,7 +15,10 @@ namespace MyStore.Data
         ///data access code
         ///CRUD
         IEnumerable<Customer> GetAll();
-        ActionResult<Customer> GetById(int id);
+        Customer GetById(int id);
+        void Update(Customer customerToUpdate);
+        bool Exists(int id);
+        bool Delete(Customer customerToDelete);
     }
 
     public class CustomerRepository : ICustomerRepository
@@ -36,7 +39,7 @@ namespace MyStore.Data
         //{
         //    return context.Customers.Where(x => x.Categoryid == categoryId).ToList();
         //}
-        public ActionResult<Customer> GetById(int id)
+        public Customer GetById(int id)
         {
             try
             {
@@ -53,6 +56,22 @@ namespace MyStore.Data
             var addedCustomer = context.Customers.Add(newCustomer);
             context.SaveChanges();
             return addedCustomer.Entity;
+        }
+        public void Update(Customer customerToUpdate)
+        {
+            context.Customers.Update(customerToUpdate);
+            context.SaveChanges();
+        }
+        public bool Exists(int id)
+        {
+            var exists = context.Customers.Count(x => x.Custid == id);
+            return exists == 1;
+        }
+        public bool Delete(Customer customerToDelete)
+        {
+            var deletedItem=context.Customers.Remove(customerToDelete);
+            context.SaveChanges();
+            return deletedItem != null;
         }
     }
 }

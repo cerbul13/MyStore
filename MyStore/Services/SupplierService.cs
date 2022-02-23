@@ -14,8 +14,11 @@ namespace MyStore.Services
     public interface ISupplierService
     {
         SupplierModel AddSupplier(SupplierModel newSupplier);
+        bool Delete(int id);
+        bool Exists(int id);
         IEnumerable<SupplierModel> GetAllSuppliers();
-        ActionResult<SupplierModel> GetById(int id);
+        SupplierModel GetById(int id);
+        void UpdateSupplier(SupplierModel model);
     }
 
     public class SupplierService : ISupplierService
@@ -31,27 +34,41 @@ namespace MyStore.Services
 
         public IEnumerable<SupplierModel> GetAllSuppliers()
         {
-            var allSuppliers = supplierRepository.GetAll().ToList();//List<Product>
-                                                                    //transform domain objects from List<Product> -> List<ProductModel>
+            var allSuppliers = supplierRepository.GetAll().ToList();//List<Supplier>
+                                                                    //transform domain objects from List<Supplier> -> List<SupplierModel>
             var supplierModels = mapper.Map<IEnumerable<SupplierModel>>(allSuppliers);
 
             return supplierModels;
         }
 
-        public ActionResult<SupplierModel> GetById(int id)
+        public SupplierModel GetById(int id)
         {
             var supplierToGet = supplierRepository.GetById(id);
             return mapper.Map<SupplierModel>(supplierToGet);
         }
+        public bool Exists(int id)
+        {
+            return supplierRepository.Exists(id);
+        }
         public SupplierModel AddSupplier(SupplierModel newSupplier)
         {
-            //Product addedProduct = mapper.Map<Product>(newProduct);
-            //return productRepository.Add(addedProduct);
+            //Supplier addedSupplier = mapper.Map<Supplier>(newSupplier);
+            //return supplierRepository.Add(addedSupplier);
 
             Supplier supplierToAdd = mapper.Map<Supplier>(newSupplier);
             var addedSupplier = supplierRepository.Add(supplierToAdd);
             newSupplier = mapper.Map<SupplierModel>(addedSupplier);
             return newSupplier;
+        }
+        public void UpdateSupplier(SupplierModel model)
+        {
+            Supplier supplierToUpdate = mapper.Map<Supplier>(model);
+            supplierRepository.Update(supplierToUpdate);
+        }
+        public bool Delete(int id)
+        {
+            Supplier itemToDelete = supplierRepository.GetById(id);
+            return supplierRepository.Delete(itemToDelete);
         }
     }
 }
