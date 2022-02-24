@@ -28,6 +28,19 @@ namespace MyStore.Controllers
         [HttpGet]
         public IEnumerable<ProductModel> Get()
         {
+            string[] games = {"Morrowind", "BioShock", "Daxter","The Darkness", "Half Life", "System Shock 2"};
+
+            IEnumerable<string> subset =
+                from g in games
+                where g.Length > 6
+                && g.Substring(0,1)=="M"
+                orderby g
+                select g;
+            IEnumerable<string> subset2 =
+                games.Where(x => x.Length > 6)
+                .OrderBy(x=>x)
+                .Select(x=>x);
+
             var productList = productService.GetAllProducts();
             return productList;
         }
