@@ -20,19 +20,49 @@ namespace MyStore.Controllers
         {
             this.orderService = productService;
         }
-        // GET: api/<OrdersController>
+
         [HttpGet]
-        public IEnumerable<Order> Get()
+        public IEnumerable<Order> Get([FromQuery] string[] listOfTowns)
         {
-            var myOrder = new Order();
-            //var birthYear= myOrder.Emp.Birthdate;
-            //return new List<Order>();
-            var orderList = orderService.GetAll("Poland");
+            List<string> townsList = new List<string>();
+            for (int i = 0; i < listOfTowns.Length; i++)
+            {
+                townsList.Add(listOfTowns[i]);
+            }
+            var orderList = orderService.GetAll(townsList);
+            return orderList;
+        }
+        [HttpGet]
+        [Route("GetOrdersByCountry/{country}")]
+        public IEnumerable<Order> Get(string country)
+        {
+            var orderList = orderService.GetAll(country);
             return orderList;
         }
 
+
+        //public IEnumerable<Order> Get([FromQuery] string[] listOfTowns, [FromQuery] string country)
+        //{
+        //    if (listOfTowns==null)
+        //    {
+        //        var orderList = orderService.GetAll(country);
+        //        return orderList;
+        //    } else
+        //    {
+        //        List<string> townsList = new List<string>();
+        //        for (int i=0;i<listOfTowns.Length;i++)
+        //        {
+        //            townsList.Add(listOfTowns[i]);
+        //        }
+        //        var orderList = orderService.GetAll(townsList);
+        //        return orderList;
+        //    }
+        //}
+
+
         // GET api/<OrdersController>/5
         [HttpGet("{id}")]
+        //[Route("api/[controller]")]
         public string Get(int id)
         {
             return "value";

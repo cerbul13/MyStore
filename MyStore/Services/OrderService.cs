@@ -11,6 +11,7 @@ namespace MyStore.Services
     public interface IOrderService
     {
         IEnumerable<Order> GetAll(string shipCountry);
+        IEnumerable<Order> GetAll(List<string> shipCities);
     }
 
     public class OrderService : IOrderService
@@ -25,7 +26,12 @@ namespace MyStore.Services
         }
         public IEnumerable<Order> GetAll(string shipCountry)
         {
-            var allOrders = orderRepository.GetAll("Poland").ToList();
+            var allOrders = orderRepository.GetAll(shipCountry).ToList();
+            return allOrders;
+        }
+        public IEnumerable<Order> GetAll(List<string> shipCities)
+        {
+            var allOrders = orderRepository.GetAll(shipCities);
             return allOrders;
         }
     }

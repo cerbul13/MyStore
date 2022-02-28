@@ -324,3 +324,6 @@ C:\Users\Dan\source\repos\MyStore\MyStore\obj\Debug\net5.0\MyStore.genruntimecon
 C:\Users\Dan\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Dan\source\repos\MyStore\MyStore\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Dan\source\repos\MyStore\MyStore\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
