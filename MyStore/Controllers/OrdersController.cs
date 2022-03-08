@@ -23,21 +23,20 @@ namespace MyStore.Controllers
 
         [HttpGet]
 
-        public IEnumerable<Order> Get([FromQuery] List<string> listOfTowns)
+        public IEnumerable<Order> Get([FromQuery] List<string> listOfTowns) //http://localhost:5000/api/orders?listOfTowns=Warszawa&listOfTowns=Reims
         {
             var orderList = orderService.GetAll(listOfTowns);
             return orderList;
         }
         [HttpGet]
         [Route("GetOrdersByCountry/{country}")]
-        public IEnumerable<Order> Get(string country)
+        public IEnumerable<Order> Get(string country)   //http://localhost:5000/api/orders/GetOrdersByCountry/Poland
         {
             var orderList = orderService.GetAll(country);
             return orderList;
         }
 
-
-        //public IEnumerable<Order> Get([FromQuery] string[] listOfTowns, [FromQuery] string country)
+        //public IEnumerable<Order> Get([FromQuery] List<string> listOfTowns, [FromQuery] string country)
         //{
         //    if (listOfTowns==null)
         //    {
@@ -45,13 +44,8 @@ namespace MyStore.Controllers
         //        return orderList;
         //    } else
         //    {
-        //        List<string> townsList = new List<string>();
-        //        for (int i=0;i<listOfTowns.Length;i++)
-        //        {
-        //            townsList.Add(listOfTowns[i]);
-        //        }
-        //        var orderList = orderService.GetAll(townsList);
-        //        return orderList;
+        //      var orderList = orderService.GetAll(listOfTowns);
+        //      return orderList;
         //    }
         //}
 
