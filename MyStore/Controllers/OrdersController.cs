@@ -22,14 +22,10 @@ namespace MyStore.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Order> Get([FromQuery] string[] listOfTowns)
+
+        public IEnumerable<Order> Get([FromQuery] List<string> listOfTowns)
         {
-            List<string> townsList = new List<string>();
-            for (int i = 0; i < listOfTowns.Length; i++)
-            {
-                townsList.Add(listOfTowns[i]);
-            }
-            var orderList = orderService.GetAll(townsList);
+            var orderList = orderService.GetAll(listOfTowns);
             return orderList;
         }
         [HttpGet]
