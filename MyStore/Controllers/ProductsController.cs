@@ -26,7 +26,7 @@ namespace MyStore.Controllers
 
         // GET: api/<ProductsController>
         [HttpGet]
-        public IEnumerable<ProductModel> Get()
+        public ActionResult<IEnumerable<ProductModel>> Get()
         {
             string[] games = {"Morrowind", "BioShock", "Daxter","The Darkness", "Half Life", "System Shock 2"};
 
@@ -42,7 +42,7 @@ namespace MyStore.Controllers
                 .Select(x=>x);
 
             var productList = productService.GetAllProducts();
-            return productList;
+            return Ok(productList);
         }
 
         // GET api/<ProductsController>/5

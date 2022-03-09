@@ -25,9 +25,9 @@ namespace MyStore.Tests
             var sut = new ProductModel() 
             { 
                 Categoryid=ValidCategoryId,
-                Productid=2,
-                Supplierid=2,
-                Unitprice=10,
+                Productid=Consts.TestProduct,
+                Supplierid=Consts.TestSupplierId,
+                Unitprice=Consts.TestUnitPrice,
                 Discontinued=true,
                 Productname="Test Product Name"
             };
