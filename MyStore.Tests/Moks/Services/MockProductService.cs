@@ -20,7 +20,7 @@ namespace MyStore.Tests.Moks.Services
             //this.Metoda1().Metoda2().().()... fluent
         }
 
-        public MockProductService MockGetById(Product product)
+        public MockProductService MockGetById(ProductModel product)
         {
             Setup(x => x.GetById(It.IsAny<int>()))
                 .Returns(product);
