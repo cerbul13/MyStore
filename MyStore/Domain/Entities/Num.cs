@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//using System;
+//using System.Collections.Generic;
 
-#nullable disable
+//#nullable disable
 
-namespace MyStore.Domain.Entities
-{
-    public partial class Num
-    {
-        public int N { get; set; }
-    }
-}
+//namespace MyStore.Domain.Entities
+//{
+//    public partial class Num
+//    {
+//        public int N { get; set; }
+//    }
+//}

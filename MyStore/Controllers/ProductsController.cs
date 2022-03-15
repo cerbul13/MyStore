@@ -99,14 +99,19 @@ namespace MyStore.Controllers
 
         // DELETE api/<ProductsController>/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(ProductModel))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ProductModel))]
         public IActionResult Delete(int id)
         {
             if (!productService.Exists(id))
             {
                 return NotFound();
             }
+            //productService.Delete(id);
+            //var productToDelete = new ProductService();
+            //var productToDelete = (productService.GetById(id);
             productService.Delete(id);
-            return NoContent();
+            return NoContent(); 
             //search the object with the id
             //delete the object
             //return no content

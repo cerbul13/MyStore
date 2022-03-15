@@ -20,11 +20,18 @@ namespace MyStore.Tests.Moks.Services
             //this.Metoda1().Metoda2().().()... fluent
         }
 
-        public MockProductService MockGetById(Product product)
+        public MockProductService MockGetById(ProductModel product)
         {
             Setup(x => x.GetById(It.IsAny<int>()))
                 .Returns(product);
                 //.Throws(new Exception("Product with Id not found."));
+            return this;
+        }
+        public MockProductService MockGetByIDInvalid()
+        {
+            Setup(x => x.GetById(It.IsAny<int>()))
+                .Throws(new Exception("Product  with that ID was not found!"));
+
             return this;
         }
     }

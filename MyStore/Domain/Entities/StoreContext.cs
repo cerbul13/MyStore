@@ -20,14 +20,14 @@ namespace MyStore.Domain.Entities
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<Num> Nums { get; set; }
+        //public virtual DbSet<Num> Nums { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Score> Scores { get; set; }
+        //public virtual DbSet<Score> Scores { get; set; }
         public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<Test> Tests { get; set; }
+        //public virtual DbSet<Test> Tests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -203,14 +203,14 @@ namespace MyStore.Domain.Entities
                     .HasConstraintName("FK_Employees_Employees");
             });
 
-            modelBuilder.Entity<Num>(entity =>
-            {
-                entity.HasKey(e => e.N);
+            //modelBuilder.Entity<Num>(entity =>
+            //{
+            //    entity.HasKey(e => e.N);
 
-                entity.Property(e => e.N)
-                    .ValueGeneratedNever()
-                    .HasColumnName("n");
-            });
+            //    entity.Property(e => e.N)
+            //        .ValueGeneratedNever()
+            //        .HasColumnName("n");
+            //});
 
             modelBuilder.Entity<Order>(entity =>
             {
@@ -371,30 +371,30 @@ namespace MyStore.Domain.Entities
                     .HasConstraintName("FK_Products_Suppliers");
             });
 
-            modelBuilder.Entity<Score>(entity =>
-            {
-                entity.HasKey(e => new { e.Testid, e.Studentid });
+            //modelBuilder.Entity<Score>(entity =>
+            //{
+            //    entity.HasKey(e => new { e.Testid, e.Studentid });
 
-                entity.HasIndex(e => new { e.Testid, e.Score1 }, "idx_nc_testid_score");
+            //    entity.HasIndex(e => new { e.Testid, e.Score1 }, "idx_nc_testid_score");
 
-                entity.Property(e => e.Testid)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("testid");
+            //    entity.Property(e => e.Testid)
+            //        .HasMaxLength(10)
+            //        .IsUnicode(false)
+            //        .HasColumnName("testid");
 
-                entity.Property(e => e.Studentid)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("studentid");
+            //    entity.Property(e => e.Studentid)
+            //        .HasMaxLength(10)
+            //        .IsUnicode(false)
+            //        .HasColumnName("studentid");
 
-                entity.Property(e => e.Score1).HasColumnName("score");
+            //    entity.Property(e => e.Score1).HasColumnName("score");
 
-                entity.HasOne(d => d.Test)
-                    .WithMany(p => p.Scores)
-                    .HasForeignKey(d => d.Testid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Scores_Tests");
-            });
+            //    entity.HasOne(d => d.Test)
+            //        .WithMany(p => p.Scores)
+            //        .HasForeignKey(d => d.Testid)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK_Scores_Tests");
+            //});
 
             modelBuilder.Entity<Shipper>(entity =>
             {
@@ -467,13 +467,13 @@ namespace MyStore.Domain.Entities
                     .HasColumnName("region");
             });
 
-            modelBuilder.Entity<Test>(entity =>
-            {
-                entity.Property(e => e.Testid)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("testid");
-            });
+            //modelBuilder.Entity<Test>(entity =>
+            //{
+            //    entity.Property(e => e.Testid)
+            //        .HasMaxLength(10)
+            //        .IsUnicode(false)
+            //        .HasColumnName("testid");
+            //});
 
             OnModelCreatingPartial(modelBuilder);
         }

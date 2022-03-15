@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//using System;
+//using System.Collections.Generic;
 
-#nullable disable
+//#nullable disable
 
-namespace MyStore.Domain.Entities
-{
-    public partial class Test
-    {
-        public Test()
-        {
-            Scores = new HashSet<Score>();
-        }
+//namespace MyStore.Domain.Entities
+//{
+//    public partial class Test
+//    {
+//        public Test()
+//        {
+//            Scores = new HashSet<Score>();
+//        }
 
-        public string Testid { get; set; }
+//        public string Testid { get; set; }
 
-        public virtual ICollection<Score> Scores { get; set; }
-    }
-}
+//        public virtual ICollection<Score> Scores { get; set; }
+//    }
+//}

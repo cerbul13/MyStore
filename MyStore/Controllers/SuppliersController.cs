@@ -26,10 +26,10 @@ namespace MyStore.Controllers
 
         // GET: api/<SuppliersController>
         [HttpGet]
-        public IEnumerable<SupplierModel> Get()
+        public ActionResult<IEnumerable<SupplierModel>> Get()
         {
             var supplierList = supplierService.GetAllSuppliers();
-            return supplierList;
+            return Ok(supplierList);
         }
 
         // GET api/<SuppliersController>/5
