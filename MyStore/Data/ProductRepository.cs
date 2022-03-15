@@ -6,6 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+using MyStore.Models;
+using MyStore.Services;
+using System.Web.Mvc;
+using System.Net;
+
 namespace MyStore.Data
 {
     public interface IProductRepository
@@ -69,8 +75,11 @@ namespace MyStore.Data
         public bool Delete(Product productToDelete)
         {
             var deletedItem=context.Products.Remove(productToDelete);
-            context.SaveChanges();
+            context.SaveChanges();            
             return deletedItem != null;
+            //context.HttpContext.Response.StatusCode = StatusCodes.Status204NoContent; 
+                       
+            //ActionResult(StatusCodes.Status204NoContent); 
         }
     }
 }

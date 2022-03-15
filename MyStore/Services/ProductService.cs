@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using MyStore.Data;
 using MyStore.Domain.Entities;
 using MyStore.Models;
@@ -94,6 +95,12 @@ namespace MyStore.Services
         {
             Product itemToDelete = productRepository.GetById(id);
             return productRepository.Delete(itemToDelete);
+            //if (itemToDelete!=null)
+            //{
+            //    productRepository.Delete(itemToDelete);
+            //    return OkObjectResult;
+            //}
+            //return NotFound();
         }
     }
 }

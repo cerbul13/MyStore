@@ -11,6 +11,7 @@ namespace MyStore.Domain.Entities
         [Required]
         public int Orderid { get; set; }
         public int? Custid { get; set; }
+        [Required]
         public int Empid { get; set; }
         public DateTime Orderdate { get; set; }
         public DateTime Requireddate { get; set; }

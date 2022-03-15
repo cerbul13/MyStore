@@ -11,6 +11,7 @@ namespace MyStore.Models
         [Required]
         public int Custid { get; set; }
         [Required]
+        [MinLength(3)]
         public string Companyname { get; set; }
         public string Contactname { get; set; }
         public string Contacttitle { get; set; }

@@ -26,17 +26,17 @@ namespace MyStore.Controllers
 
         [HttpGet]
 
-        public IEnumerable<OrderModel> Get([FromQuery] List<string> listOfTowns) //http://localhost:5000/api/orders?listOfTowns=Warszawa&listOfTowns=Reims
+        public ActionResult<IEnumerable<OrderModel>> Get([FromQuery] List<string> listOfTowns) //http://localhost:5000/api/orders?listOfTowns=Warszawa&listOfTowns=Reims
         {
             var orderList = orderService.GetAll(listOfTowns);
-            return orderList;
+            return Ok(orderList);
         }
         [HttpGet]
         [Route("GetOrdersByCountry/{country}")]
-        public IEnumerable<OrderModel> Get(string country)   //http://localhost:5000/api/orders/GetOrdersByCountry/Poland
+        public ActionResult<IEnumerable<OrderModel>> Get(string country)   //http://localhost:5000/api/orders/GetOrdersByCountry/Poland
         {
             var orderList = orderService.GetAll(country);
-            return orderList;
+            return Ok(orderList);
         }
 
         //public IEnumerable<Order> Get([FromQuery] List<string> listOfTowns, [FromQuery] string country)

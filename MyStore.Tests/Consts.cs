@@ -9,7 +9,7 @@ namespace MyStore.Tests
     public static class Consts
     {
         public static int CategoryId = 2;
-        public static int TestProduct = 3;
+        public static int TestProduct = 1;
         public static int TestSupplierId = 4;
         public static decimal TestUnitPrice = 3.5M;
         public const string ProductName = "Test Product Name 1";

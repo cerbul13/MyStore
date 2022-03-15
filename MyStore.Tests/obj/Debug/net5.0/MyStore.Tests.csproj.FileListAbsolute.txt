@@ -305,3 +305,10 @@ C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\bin\Debug\net5.0\MyStore.
 C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\bin\Debug\net5.0\MyStore.pdb
 C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\obj\Debug\net5.0\MyStore.Tests.csproj.CopyComplete
 C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\obj\Debug\net5.0\MyStore.Tests.genruntimeconfig.cache
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\bin\Debug\net5.0\System.Web.Mvc.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\bin\Debug\net5.0\System.Web.Razor.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\bin\Debug\net5.0\System.Web.Helpers.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\bin\Debug\net5.0\System.Web.WebPages.Deployment.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\bin\Debug\net5.0\System.Web.WebPages.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore.Tests\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll

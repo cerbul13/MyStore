@@ -331,3 +331,10 @@ C:\Users\Dan\source\repos\MyStore\MyStore\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\Dan\source\repos\MyStore\MyStore\bin\Debug\net5.0\Moq.dll
 C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\Moq.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\System.Web.Mvc.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\System.Web.Razor.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\System.Web.Helpers.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\System.Web.WebPages.Deployment.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\System.Web.WebPages.dll
+C:\Users\Dan Cerba\source\repos\MyStore2\MyStore\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
