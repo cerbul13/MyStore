@@ -12,9 +12,8 @@ namespace MyStore.Services
     public interface IOrderService
     {
         IEnumerable<OrderModel> GetAll(string shipCountry);
-        IEnumerable<OrderModel> GetAll(List<string> shipCities);
+        IEnumerable<OrderModel> GetAll(List<string> shipCities, string townsStringList);
         OrderModel AddOrder(OrderModel newOrder);
-        public Order Add(Order newOrder);
         bool Delete(int id);
         bool Exists(int id);
         OrderModel GetById(int id);
@@ -36,9 +35,9 @@ namespace MyStore.Services
             var orderModels = mapper.Map<IEnumerable<OrderModel>>(allOrders);
             return orderModels;
         }
-        public IEnumerable<OrderModel> GetAll(List<string> shipCities)
+        public IEnumerable<OrderModel> GetAll(List<string> shipCities, string townsStringList)
         {
-            var allOrders = orderRepository.GetAll(shipCities).ToList();
+            var allOrders = orderRepository.GetAll(shipCities,townsStringList).ToList();
             var orderModels = mapper.Map<IEnumerable<OrderModel>>(allOrders);
             return orderModels;
         }
@@ -50,10 +49,6 @@ namespace MyStore.Services
         public bool Exists(int id)
         {
             return orderRepository.Exists(id);
-        }
-        public Order Add(Order newOrder)
-        {
-            return orderRepository.Add(newOrder);
         }
         public OrderModel AddOrder(OrderModel newOrder)
         {

@@ -26,9 +26,9 @@ namespace MyStore.Controllers
 
         [HttpGet]
 
-        public ActionResult<IEnumerable<OrderModel>> Get([FromQuery] List<string> listOfTowns) //http://localhost:5000/api/orders?listOfTowns=Warszawa&listOfTowns=Reims
+        public ActionResult<IEnumerable<OrderModel>> Get([FromQuery] List<string> listOfTowns, [FromQuery] string townsStringList) //http://localhost:5000/api/orders?listOfTowns=Warszawa&listOfTowns=Reims&townsStringList=Warszawa,Reims
         {
-            var orderList = orderService.GetAll(listOfTowns);
+            var orderList = orderService.GetAll(listOfTowns,townsStringList);
             return Ok(orderList);
         }
         [HttpGet]
@@ -69,73 +69,73 @@ namespace MyStore.Controllers
             }
         }
 
-        // POST api/<OrdersController>
-        //[HttpPost]
-        //public IActionResult Post([FromBody] OrderModel newOrder)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest();
-        //    }
-        //    //failfast -> return
-        //    //orderService.Add();
-        //    var addedOrder = orderService.AddOrder(newOrder);
-
-        //    return CreatedAtAction("Post", new { id = addedOrder.Orderid }, addedOrder);
-        //    //return CreatedAtAction("Post", newOrder,new { id = newOrder.Orderid });
-        //}
+        //POST api/<OrdersController>
         [HttpPost]
         public IActionResult Post([FromBody] OrderModel newOrder)
         {
-            //var neworder = new Order()
-            //{
-            //    Orderdate = DateTime.Now,
-            //    Requireddate = DateTime.Now.AddDays(3),
-            //    Shipaddress ="random address",
-            //    Shipcity="random city",
-            //    Shippostalcode="450007",
-            //    Shipname="delivery",
-            //    Custid=85,
-            //    Empid=5,
-            //    Shipperid=3,
-            //    Freight=12.5M,
-            //    Shipcountry="random country"
-            //    //OrderDetails=new Orderdetails(){};
-            //};
-            ////2 products
-            //var orderDetailsList = new List<OrderDetail>();
-            //var product1 = new OrderDetail
-            //{
-            //    Productid = 22,
-            //    Discount = 0,
-            //    Qty = 2,
-            //    Unitprice = 12
-            //};
-            //orderDetailsList.Add(product1);
-            //var product2 = new OrderDetail
-            //{
-            //    Productid = 57,
-            //    Discount = 0,
-            //    Qty = 12,
-            //    Unitprice = 7
-            //};            
-            //orderDetailsList.Add(product2);
-            //neworder.OrderDetails = orderDetailsList;
-
-            
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            //failfast -> return
+            //orderService.Add();
             var addedOrder = orderService.AddOrder(newOrder);
 
-            //if (!ModelState.IsValid)
-            //{
-            //    return BadRequest();
-            //}
-            ////failfast -> return
-            ////orderService.Add();
-            //var addedOrder = orderService.AddOrder(newOrder);
-
-            return CreatedAtAction("Get", new { id = addedOrder.Orderid },addedOrder);
-            ////return CreatedAtAction("Get", newOrder,new { id = newOrder.Orderid });
+            return CreatedAtAction("Post", new { id = addedOrder.Orderid }, addedOrder);
+            //return CreatedAtAction("Post", newOrder,new { id = newOrder.Orderid });
         }
+        //[HttpPost]
+        //public IActionResult Post([FromBody] OrderModel newOrder)
+        //{
+        //    //var neworder = new Order()
+        //    //{
+        //    //    Orderdate = DateTime.Now,
+        //    //    Requireddate = DateTime.Now.AddDays(3),
+        //    //    Shipaddress ="random address",
+        //    //    Shipcity="random city",
+        //    //    Shippostalcode="450007",
+        //    //    Shipname="delivery",
+        //    //    Custid=85,
+        //    //    Empid=5,
+        //    //    Shipperid=3,
+        //    //    Freight=12.5M,
+        //    //    Shipcountry="random country"
+        //    //    //OrderDetails=new Orderdetails(){};
+        //    //};
+        //    ////2 products
+        //    //var orderDetailsList = new List<OrderDetail>();
+        //    //var product1 = new OrderDetail
+        //    //{
+        //    //    Productid = 22,
+        //    //    Discount = 0,
+        //    //    Qty = 2,
+        //    //    Unitprice = 12
+        //    //};
+        //    //orderDetailsList.Add(product1);
+        //    //var product2 = new OrderDetail
+        //    //{
+        //    //    Productid = 57,
+        //    //    Discount = 0,
+        //    //    Qty = 12,
+        //    //    Unitprice = 7
+        //    //};            
+        //    //orderDetailsList.Add(product2);
+        //    //neworder.OrderDetails = orderDetailsList;
+
+
+        //    var addedOrder = orderService.AddOrder(newOrder);
+
+        //    //if (!ModelState.IsValid)
+        //    //{
+        //    //    return BadRequest();
+        //    //}
+        //    ////failfast -> return
+        //    ////orderService.Add();
+        //    //var addedOrder = orderService.AddOrder(newOrder);
+
+        //    return CreatedAtAction("Get", new { id = addedOrder.Orderid },addedOrder);
+        //    ////return CreatedAtAction("Get", newOrder,new { id = newOrder.Orderid });
+        //}
 
         // PUT api/<OrdersController>/5
         [HttpPut("{id}")]

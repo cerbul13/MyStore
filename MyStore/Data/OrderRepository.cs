@@ -11,7 +11,7 @@ namespace MyStore.Data
     public interface IOrderRepository
     {
         IQueryable<Order> GetAll(string shipCountry/*, List<string> shipCities*/);
-        IQueryable<Order> GetAll(List<string> shipCities);
+        IQueryable<Order> GetAll(List<string> shipCities, string townsStringList);
         Order GetById(int id);
         Order Add(Order newProduct);
         void Update(Order orderToUpdate);
@@ -38,7 +38,7 @@ namespace MyStore.Data
 
             return query;
         }
-        public IQueryable<Order> GetAll(List<string> shipCities)
+        public IQueryable<Order> GetAll(List<string> shipCities, string townsStringList)
         {
             var query = this.context.Orders
                 //.Include(x => x.Cust)
@@ -49,6 +49,12 @@ namespace MyStore.Data
                                                     //select * from Orders where shipcity  in ('Warszawa', 'Reims')
             {
                 query = query.Where(x => shipCities.Contains(x.Shipcity));
+            }
+            if (!String.IsNullOrEmpty(townsStringList))
+            {
+                List<string> townsList = new List<string>();
+                townsList = townsStringList.Split(",").ToList();
+                query = query.Where(x => townsList.Contains(x.Shipcity));
             }
             //query = query.Skip(40).Take(20);sar peste 20 iteme adica 2 pagini, si afisez 20 items.
 

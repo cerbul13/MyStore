@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using MyStore.Controllers;
+using MyStore.Data;
+using MyStore.Domain.Entities;
 using MyStore.Models;
 using MyStore.Services;
 using System;
@@ -14,14 +19,56 @@ using Xunit;
 
 namespace MyStore.Tests
 {
-    public class ProductControllerTests
+    public class ProductControllerTests//:Controller
     {
         private Mock<IProductService> mockProductService;
+        private readonly StoreContext context;
+        private readonly IProductRepository productRepository;
+        private readonly IProductService productService;
+        private readonly IMapper mapper;
+        private readonly IServiceCollection services;
 
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContextFactory<StoreContext>(
+                options =>
+                    options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Test"));
+        }
         public ProductControllerTests()
         {
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Store";
+            var optionsBuilder = new DbContextOptionsBuilder<StoreContext>();
+            optionsBuilder.UseSqlServer(connectionString);
+            context = new StoreContext(optionsBuilder.Options);
+
             mockProductService = new Mock<IProductService>();
+
+            productRepository = new ProductRepository(context);
+            //mapper = new Mapper();
+            productService = new ProductService(productRepository,mapper);
+            //services = this.HttpContext.RequestServices;
+            //services = new ServiceCollection();
+            //services.AddDbContext<StoreContext>(
+            //     options => options.UseSqlServer(connectionString)
+            //    );
         }
+
+        [Fact]
+        public void Should_Return_Count_OnGetAll()
+        {
+            //arrange
+            var controller = new ProductsController(productService);
+            //act
+            var response = controller.Get();
+            var result = response.Result as OkObjectResult;
+            var actualData = result.Value as IEnumerable<ProductModel>;
+            //assert
+            Assert.IsType<OkObjectResult>(result);
+            Assert.IsType<List<ProductModel>>(actualData);
+            Assert.Equal(81, actualData.Count());
+            //Assert.Equal(OkObjectResult, result);
+        }
+
         [Fact]
         public void Should_Return_OK_OnGetAll()
         {
