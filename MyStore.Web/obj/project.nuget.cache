@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6PYkDxGJLRoi2MH0L4x+TbGJH+cyY6XxqYunZQMh6axwy/KJ4yQXE1KHMWBv+i7m+rtvbcSMUtPywvZXPcN0HQ==",
+  "dgSpecHash": "pcL2No7aG3ptJtTw1JIh4m2GxuNJlxcn8dMpdk9YizgVVD3GmP5mJU4uZH5LRnKF7CZXY57jt88s/GrW1mKjOQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dan Cerba\\source\\repos\\MyStore2\\MyStore.Web\\MyStore.Web.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Dan\\source\\repos\\MyStore\\MyStore.Web\\MyStore.Web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dan\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
   "logs": []
 }

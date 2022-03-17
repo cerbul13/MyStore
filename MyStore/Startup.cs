@@ -46,6 +46,8 @@ namespace MyStore
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAutoMapper(typeof(ProductProfile));
 
+            //load the appsettings in a strongly typed class
+            services.Configure<MySettings>(Configuration.GetSection("MySettings"));
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
@@ -75,6 +77,7 @@ namespace MyStore
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseMiddleware<SecurityHeaderMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
