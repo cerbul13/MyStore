@@ -1,0 +1,151 @@
+URI	- A Uniform Resource Identifier (URI) is a unique sequence of characters that identifies a logical or 
+	physical resource used by web technologies.
+URL	- URL stands for Uniform Resource Locator. A URL is nothing more than the address of a given unique resource on the Web
+Cookie - A cookie is a piece of data from a website that is stored within a web browser that the website can retrieve at a later time. Cookies are 
+	used to tell the server that users have returned to a particular website. When users return to a website, a cookie provides information and 
+	allows the site to display selected settings and targeted content.
+	Cookies often store your settings for a website. When you return to the site, the browser sends back the cookies that belong to the site. 
+	This allows the site to present you with information customized to fit your needs.
+	Cookies can store a wide range of information, including personally identifiable information (such as your name, home address, 
+	email address, or telephone number).
+DLL	- Dynamic Link Library - A DLL is a library that contains code and data that can be used by more than one program at the same time
+Class	- A class is a user-defined blueprint or prototype from which objects are created. Basically, a class combines the fields and methods
+	(member function which defines actions) into a single unit.
+Abstract Class - Use the abstract modifier in a class declaration to indicate that a class is intended only to be a base class of other classes. 
+	An abstract class has methods that are not implemented, and that derived class will implement. Abstract classes cannot be instantiated.
+	A class needs to be declared abstract in order to have abstract members.
+	Not all methods of an abstract class needs to be abstract.
+	Abstract class can have constructors.
+Sealed Class - Is a class that cannot be inherited by any class but can be instantiated. The design intent of a sealed class is to indicate that 
+	the class is specialized and there is no need to extend it to provide any additional functionality through inheritance to override its behavior.
+Static Class - can only contain static data members including static methods, static constructors, and static properties
+	Static classes cannot be instantiated
+	A normal non static class can contain static members.
+Partial class - It provides a special ability to implement the functionality of a single class into multiple files and all these files are combined into 
+	a single class file when the application is compiled
+Enum 	- (also called enumeration) is a user-defined value type used to represent a list of named integer constants
+Extension methods - enable you to "add" methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type
+This - in extension methods - extension method is a static method of a static class, where the "this" modifier is applied to the first parameter.
+This - is used to refer to the current instance of the class 
+This - This keyword is used to call another constructor from a constructor in the same class
+Static method - A static method in C# is a method that keeps only one copy of the method at the Type level, not the object level. That means, all 
+	instances of the class share the same copy of the method and its data.
+Static class - A static class contains only static members, cannot be instantiated , is sealed and cannot contain instance constructors.
+Override - is used to mark a method that provides a new implementation of the method inherited from a base class.
+Access Modifiers in a class - public, protected, internal, private, protected internal
+	Public - you have access to public members from outside the class
+	Protected - you have access to protected members from within the class or within the inherited class
+	Private - you have acccess to private members only from within the class
+	Internal - the access is limited to the assembly in which it is declared
+	Protected internal - is used to specify that access is limited to the current assembly or types derived from the containing class
+Default access modifier of a class - private
+Interfaces - Like a class, Interface can have methods, properties, events, and indexers as its members. But interfaces will contain only the 
+	declaration of the members. The implementation of the interface's members will be given by class who implements the interface 
+Interfaces - don't contain fields because fields represent a specific implementation of data representation, and exposing them would break encapsulation.
+Interfaces - defines a contract. Any class or struct that implements that contract must provide an implementation of the members defined in the interface
+Interfaces - all members of an interface are public
+Interfaces - contains definitions for a group of related functionalities that a non-abstract class or a struct must implement
+Interfaces - C# allows the user to inherit one interface into another interface.
+Properties - Property in C# is a member of a class that provides a flexible mechanism for classes to expose private fields. This can be done with the use of accessors.
+	Properties can be used to model/validate data that reach the private fields. 
+Automatic Properties - you do not have to define the field for the property, and you only have to write get; and set; inside the property.
+Read-Write Property - standard property where you can read or write a value for that property
+Read-Only Property. - read only proerties can only be read, and therefore they only have getter accessor. A value can be set in the constructor
+Static Property. - A static Property can be used to access only the static members of the class.
+Indexer Property - An indexer is a special type of property that allows a class or a structure to be accessed like an array for its internal collection.
+Using 	- is used to import namespaces at the top of a code file, that will be used within the code
+	- is used to to specify a block of code (used also for try catch) where the specified class that is instantiated and that implements IDisposable 
+	interface will be disposed of at the end of the block of code.
+Encapsulation - is the packing of "data" and "functions operating on that data" into a single component and restricting the access to some of the object's components.
+	- Encapsulation solves the problem in the implementation level.
+	- Encapsulation is the mechanism by which the abstraction is implemented.
+Abstraction - Abstraction is the method of hiding the unwanted information.
+	- Abstraction solves the problem in the design level
+	- Abstraction is a process. It is the act of identifying the relevant qualities and behaviors an object should possess.
+Polymorphism - Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance and we povide 
+	different functionality by using the override directive.
+Polymorphism - Can be static or dynamic. Static is achieved by methode overloading, which means compile time polymorphism. Dynamic/Runtime Polymorphism 
+	can be achieved by method overriding.
+Inheritance - is a process in which one object acquires all the properties and behaviors of its parent object automatically.
+Const vs Readonly - ReadOnly is a runtime constant. Const is a compile time constant. The value of readonly field can be changed. 
+	The value of the const field can not be changed. The value of a readonly field can be changed at declaration or in the constructor of that class
+Imutable strings - strings are imutable because their size cannot be modified. In order to modify the size of a string a new string is allocated by the compiler.
+	In order to use a string that has the option to modify their size use stringbuilder instead.
+Imutable strings - why - imutable arrays are thread safe. Allows for compiler optimisations. They also provide size optimisation. Is safe to use them as method params.
+Method signature - is a unique identification of a method for the C# compiler. The signature consists of a method name and the type and kind (value, reference, or output) 
+	of each of its formal parameters. Method signature does not include the return type.
+Constructor - is a special method of the class which gets automatically invoked whenever an instance of the class is created.
+	Is used to initialize the private fields of the class.
+Casting - there are 2 types of casting in c#
+	Upcasting = implicit casting, means converting a smaller/child class type to a larger/parent type class.
+	Dwoncasting = explicit casting, means converting a larger/parent class type to a smaller/child type class.
+Boxing 	- is the process of converting a value type to the type object or to any interface type implemented by this value type. Boxing is implicit.
+Unboxing- extracts the value type from the object. Unboxing is explicit.
+Nullable- a nullable Type is a data type is that contain the defined data type or the null value
+Objects and string types have a default value of null
+Default value of an int is 0
+Default value of a float is 0.0
+Default value of a decimal is 0.0M
+Default value of bool is false.
+Stack vs Queue	- The Queue class tracks objects on FIFO basis, while the Stack class tracks objects on LIFO basis.
+Custom Exceptions - define and use custom exceptions if you're building a library or framework, and you want consumers of that library to react to 
+	exceptions from the library differently than they would do for built-in exception types.
+Contract preconditions and input validation have similar but still different purpose. While input validation ensures that your system is protected from 
+	the outside world, contract preconditions guard your code inside of your system and help you quickly locate and fix bugs in it.
+Exception properties - includes a number of properties that help identify the code location, the type, the help file, and the reason for the exception. 
+	The list of properties is: StackTrace, InnerException, Message, HelpLink, HResult, Source, TargetSite, and Data
+Object class - is the base class for all the classes in . Net Framework
+Assembly - is a collection of types and resources that are built to work together and form a logical unit of functionality. Assemblies take the form 
+	of executable (.exe) or dynamic link library (. dll) files, and are the building blocks of . NET applications
+Namespace - keyword is used to declare a scope that contains a set of related objects. You can use a namespace to organize code elements and to 
+	create globally unique types
+Object - an instance of a class that is created dynamically
+Multiple inheritance is not allowed in C#. The purpose behind multiple inheritance can be achieved by the implementation of multiple interfaces.
+Interface Explicit Implementation - Explicit implementation is used to resolve cases where two interfaces each declare different members of the 
+	same name such as a property or a method. To implement both interfaces, a class has to use explicit implementation either for the property 
+	P, or the method P, or both.
+Interface variable types - you are allowed to create a reference variable of an interface type or in other words, you are allowed to create an 
+	interface reference variable
+GET Request - A GET request is a way for you to grab data from a data source with the help of the internet. It’s done using the GET request method, 
+	which is a very common HTTP request method
+HTTP Request - is divided into three parts: Request line, header and body.
+HTTP Response - is also divided into three parts: Status line, header and body.
+Query String - is a part of a uniform resource locator (URL) that assigns values to specified parameters. The keys-values pairs are specified after the ? in the URL.
+HTTP Request Verbs - GET,HEAD,POST,PUT,DELETE,CONNECT,OPTIONS,TRACE,PATCH
+CRUD - stands for Create, Read, Update, Delete.
+Convention over Configuration - (or coding by convention) is a term that when a convention, or code pattern, is implemented by a tool to match the desired behavior, 
+	it behaves as expected without the use of any configuration files
+MVC	- The Model-View-Controller (MVC) architectural pattern separates an application into three main components: the model, the view, and the controller.
+Controller - contains the flow control logic for an ASP.NET MVC application. A controller determines what response to send back to a user when a user makes 
+	a browser request. A controller is written as a class
+Array - is a structure representing a fixed length collection of values or objects with the same type.
+MVC Model - contains all of your application logic that is not contained in a view or a controller. The model should contain all of your application business 
+	logic, validation logic, and database access logic.
+Abstract class vs Interface 
+	- abstract class can have members implemented
+	- abstract class can have different access modifiers for their members while interfaces have only public access modifiers.
+	- a class can inherit a single abstract class while a class can implement multiple interfaces.
+	- an abstract class can contain constructor while an interface cannot contain constructor.
+	- an abstract class can contain fields while an interface cannot contain fields.
+Value Data Type - short, int, char, float, double
+Reference Data Type - String, Class, Object and Interface
+Pointer Data Type - Pointers
+Literals - are the fixed value used by a variable that is predefined and cannot be modified during the execution of the code
+Dependency injection - A dependency is an object that another object depends on. Dependency Injection (or inversion) is basically providing the 
+	objects that an object needs, instead of having it construct the objects themselves.
+Dependency Inversion - The Dependency Inversion Principle (DIP) states that a high-level class must not depend upon a lower level class. 
+	They must both depend upon abstractions
+SOLID Principles - 
+	Single Responsibility Principle (SRP) - A class should have one, and only one, reason to change.
+	Open Closed Principle (OCP)	      - Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+	Liskov Substitution Principle (LSP)   - The principle defines that objects of a superclass shall be replaceable with objects of its subclasses without 
+						breaking the application. That requires the objects of your subclasses to behave in the same way as the objects 
+						of your superclass.
+	Interface Segregation Principle (ISP) - Clients should not be forced to depend upon interfaces that they do not use. In order to achieve this is best to 
+						use multiple smaller interfaces instead of a bigger one that is not entirely used.
+	Dependency Inversion Principle (DIP)  - The Dependency Inversion Principle (DIP) states that a high-level class must not depend upon a lower 
+						level class. They must both depend upon abstractions. And, secondly, an abstraction must not depend 
+						upon details, but the details must depend upon abstractions.
+Unit testing - The three sections of unit testing are arrange, act and assert.
+Unit testing vs Integration testing - Unit testing is a testing method by which individual units of source code are tested to determine if they are ready to use, 
+	whereas Integration testing checks integration between software modules.
