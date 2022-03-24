@@ -13,39 +13,35 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http.Headers;
 using Xunit;
+using Newtonsoft.Json;
 
 namespace MyStore.Tests
 {
     public class ProductControllerTests//:Controller
     {
         private Mock<IProductService> mockProductService;
-        private readonly StoreContext context;
-        private readonly IProductRepository productRepository;
-        private readonly IProductService productService;
-        private readonly IMapper mapper;
-        private readonly IServiceCollection services;
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContextFactory<StoreContext>(
-                options =>
-                    options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Test"));
-        }
+        //private readonly StoreContext context;
+        //private readonly IProductRepository productRepository;
+        //private readonly IProductService productService;
+        //private readonly IMapper mapper;
+        //private readonly IServiceCollection services;
         public ProductControllerTests()
         {
-            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Store";
-            var optionsBuilder = new DbContextOptionsBuilder<StoreContext>();
-            optionsBuilder.UseSqlServer(connectionString);
-            context = new StoreContext(optionsBuilder.Options);
+            //string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Store";
+            //var optionsBuilder = new DbContextOptionsBuilder<StoreContext>();
+            //optionsBuilder.UseSqlServer(connectionString);
+            //context = new StoreContext(optionsBuilder.Options);
 
             mockProductService = new Mock<IProductService>();
 
-            productRepository = new ProductRepository(context);
+            //productRepository = new ProductRepository(context);
             //mapper = new Mapper();
-            productService = new ProductService(productRepository,mapper);
+            //productService = new ProductService(productRepository,mapper);
             //services = this.HttpContext.RequestServices;
             //services = new ServiceCollection();
             //services.AddDbContext<StoreContext>(
@@ -53,22 +49,38 @@ namespace MyStore.Tests
             //    );
         }
 
+        //[Fact]
+        //public void Should_Return_Count_OnGetAll()
+        //{
+        //    //arrange
+        //    var controller = new ProductsController(productService);
+        //    //act
+        //    var response = controller.Get();
+        //    var result = response.Result as OkObjectResult;
+        //    var actualData = result.Value as IEnumerable<ProductModel>;
+        //    //assert
+        //    Assert.IsType<OkObjectResult>(result);
+        //    Assert.IsType<List<ProductModel>>(actualData);
+        //    Assert.Equal(81, actualData.Count());
+        //    //Assert.Equal(OkObjectResult, result);
+        //}
         [Fact]
-        public void Should_Return_Count_OnGetAll()
+        public async void Integration_Should_Return_Count_andOK_OnGetAll()
+        //public async Task<IActionResult> GetAll()
         {
-            //arrange
-            var controller = new ProductsController(productService);
-            //act
-            var response = controller.Get();
-            var result = response.Result as OkObjectResult;
-            var actualData = result.Value as IEnumerable<ProductModel>;
-            //assert
-            Assert.IsType<OkObjectResult>(result);
-            Assert.IsType<List<ProductModel>>(actualData);
-            Assert.Equal(81, actualData.Count());
-            //Assert.Equal(OkObjectResult, result);
+            HttpClient client = new HttpClient();            
+            HttpResponseMessage response = await client.GetAsync($"http://localhost:5000/api/orders?listOfTowns=Warszawa&listOfTowns=Reims");
+            List<Order> ordersList = new List<Order>();
+            var contentData = string.Empty;
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                //contentData = response.Content.ReadAsStringAsync().Result;
+                var jsonString = response.Content.ReadAsStringAsync();
+                ordersList = JsonConvert.DeserializeObject<List<Order>>(jsonString.Result);
+            }
+            Assert.Equal(12, ordersList.Count);
+            Assert.Equal(System.Net.HttpStatusCode.OK, response.StatusCode);
         }
-
         [Fact]
         public void Should_Return_OK_OnGetAll()
         {

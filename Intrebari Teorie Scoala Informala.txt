@@ -1,16 +1,23 @@
-URI	- A Uniform Resource Identifier (URI) is a unique sequence of characters that identifies a logical or 
-	physical resource used by web technologies.
-URL	- URL stands for Uniform Resource Locator. A URL is nothing more than the address of a given unique resource on the Web
-Cookie - A cookie is a piece of data from a website that is stored within a web browser that the website can retrieve at a later time. Cookies are 
-	used to tell the server that users have returned to a particular website. When users return to a website, a cookie provides information and 
-	allows the site to display selected settings and targeted content.
-	Cookies often store your settings for a website. When you return to the site, the browser sends back the cookies that belong to the site. 
-	This allows the site to present you with information customized to fit your needs.
-	Cookies can store a wide range of information, including personally identifiable information (such as your name, home address, 
-	email address, or telephone number).
-DLL	- Dynamic Link Library - A DLL is a library that contains code and data that can be used by more than one program at the same time
-Class	- A class is a user-defined blueprint or prototype from which objects are created. Basically, a class combines the fields and methods
-	(member function which defines actions) into a single unit.
+PascalCase - a succession of words concatenated without any characters between them, where every word is starting with a capital letter.
+CIL 	- Compiled Intermediate Language
+CLR 	- Common Language Runtime - Converts CIL to machine instructions.
+DLL	- Dynamic Link Library - A DLL is a library that contains code and data that can be used by more than one program at the same time. Is a Compiled library
+FCL	- Framework Class Library
+Escape sequences - Character combinations consisting of a backslash (\) followed by a letter or by a combination of digits
+@ prefix to string - tells the compiler to ignore escape sequences in the string
+Var type - means that the variable type is determined by the compiler (no performance penalty/syntactic sugar)
+Implicit type casting - automatic conversion of a value of a data type to value of another data type without data loss.
+Explicit type casting - manual conversion of a value of one data type to a value of another data type. Usually there is data loss. (type) to convert.
+Method overloading - means that a method can be delcared with different combinations of parameters. The compiler will choose the method based on the parameters used.
+Variable no of Params - A method can take variable number of parameters by using the keyword params.
+Jagged arrays - A jagged array is an array of arrays where each array can have a different size.
+Empty array returned by method - When a given method has to return an empty array will return an array with 0 elements instead of null.
+New - When creating an instance of an object. You can also use the new keyword to create an instance of a type or as a member declaration modifier.
+Class	- A class is a user-defined blueprint or prototype from which objects are created. Basically, a class combines the atributes (properties, fields) and 
+	behavior (methods, operations) into a single unit.
+The default access modifier of a class is internal.
+Object - an instance of a class that is created dynamically
+Singleton class - Is a class that has a single instance. In order to prevent multiple instances the singleton class has a private constructor.
 Abstract Class - Use the abstract modifier in a class declaration to indicate that a class is intended only to be a base class of other classes. 
 	An abstract class has methods that are not implemented, and that derived class will implement. Abstract classes cannot be instantiated.
 	A class needs to be declared abstract in order to have abstract members.
@@ -21,16 +28,20 @@ Sealed Class - Is a class that cannot be inherited by any class but can be insta
 Static Class - can only contain static data members including static methods, static constructors, and static properties
 	Static classes cannot be instantiated
 	A normal non static class can contain static members.
+	You can have static properties, fields, methods and constructors in a class.
 Partial class - It provides a special ability to implement the functionality of a single class into multiple files and all these files are combined into 
 	a single class file when the application is compiled
-Enum 	- (also called enumeration) is a user-defined value type used to represent a list of named integer constants
+Enum 	- (also called enumeration) is a user-defined value type used to represent a list of named integer constants. In case no values are specified the list 
+	is indexed from 0 upwards.
 Extension methods - enable you to "add" methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type
 This - in extension methods - extension method is a static method of a static class, where the "this" modifier is applied to the first parameter.
 This - is used to refer to the current instance of the class 
-This - This keyword is used to call another constructor from a constructor in the same class
+This - This keyword is used to call another constructor from a constructor in the same class (public Dog() : this(9, "[no name]"))
 Static method - A static method in C# is a method that keeps only one copy of the method at the Type level, not the object level. That means, all 
-	instances of the class share the same copy of the method and its data.
+	instances of the class share the same copy of the method and its data. Static methods can only access static fields/properties.
 Static class - A static class contains only static members, cannot be instantiated , is sealed and cannot contain instance constructors.
+Static constructor - Is called automatically to initialize the class before the first instance is created or any static members are referenced.
+	Static constructors are not inherited.
 Override - is used to mark a method that provides a new implementation of the method inherited from a base class.
 Access Modifiers in a class - public, protected, internal, private, protected internal
 	Public - you have access to public members from outside the class
@@ -46,42 +57,51 @@ Interfaces - defines a contract. Any class or struct that implements that contra
 Interfaces - all members of an interface are public
 Interfaces - contains definitions for a group of related functionalities that a non-abstract class or a struct must implement
 Interfaces - C# allows the user to inherit one interface into another interface.
+Interfaces - cannot be instantiated.
+Fields - are used to store data that must be accessible to multiple methods of a class and available throughout the lifetime of an object.
 Properties - Property in C# is a member of a class that provides a flexible mechanism for classes to expose private fields. This can be done with the use of accessors.
-	Properties can be used to model/validate data that reach the private fields. 
+	Properties can be used to model/validate, formatting, computation, calculation of data that reach the private fields.
+	Helps with encapsulation. 
 Automatic Properties - you do not have to define the field for the property, and you only have to write get; and set; inside the property.
 Read-Write Property - standard property where you can read or write a value for that property
-Read-Only Property. - read only proerties can only be read, and therefore they only have getter accessor. A value can be set in the constructor
+Read-Only Property. - read only proerties can only be read, and therefore they only have getter accessor. A value can be set in the constructor. Another way to define 
+	a readonly property is to restrict access to setter accessor by making it private.
 Static Property. - A static Property can be used to access only the static members of the class.
 Indexer Property - An indexer is a special type of property that allows a class or a structure to be accessed like an array for its internal collection.
 Using 	- is used to import namespaces at the top of a code file, that will be used within the code
-	- is used to to specify a block of code (used also for try catch) where the specified class that is instantiated and that implements IDisposable 
+	- is used to to specify a block of code (used also for try finally) where the specified class that is instantiated and that implements IDisposable 
 	interface will be disposed of at the end of the block of code.
 Encapsulation - is the packing of "data" and "functions operating on that data" into a single component and restricting the access to some of the object's components.
-	- Encapsulation solves the problem in the implementation level.
+	- Encapsulation solves the member access problem in the implementation level.
 	- Encapsulation is the mechanism by which the abstraction is implemented.
 Abstraction - Abstraction is the method of hiding the unwanted information.
-	- Abstraction solves the problem in the design level
+	- Abstraction solves the member access problem in the design level
 	- Abstraction is a process. It is the act of identifying the relevant qualities and behaviors an object should possess.
 Polymorphism - Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance and we povide 
 	different functionality by using the override directive.
-Polymorphism - Can be static or dynamic. Static is achieved by methode overloading, which means compile time polymorphism. Dynamic/Runtime Polymorphism 
+Polymorphism - Can be static or dynamic. Static is achieved by method overloading, which means compile time polymorphism. Dynamic/Runtime Polymorphism 
 	can be achieved by method overriding.
 Inheritance - is a process in which one object acquires all the properties and behaviors of its parent object automatically.
-Const vs Readonly - ReadOnly is a runtime constant. Const is a compile time constant. The value of readonly field can be changed. 
-	The value of the const field can not be changed. The value of a readonly field can be changed at declaration or in the constructor of that class
-Imutable strings - strings are imutable because their size cannot be modified. In order to modify the size of a string a new string is allocated by the compiler.
+Const vs Readonly - ReadOnly is a runtime constant. Const is a compile time constant. 
+	The value of the const field can not be changed. The value of a readonly field can be changed at declaration or in the constructor of that class.
+Immutable strings - strings are imutable because their size cannot be modified. In order to modify the size of a string a new string is allocated by the compiler.
 	In order to use a string that has the option to modify their size use stringbuilder instead.
-Imutable strings - why - imutable arrays are thread safe. Allows for compiler optimisations. They also provide size optimisation. Is safe to use them as method params.
-Method signature - is a unique identification of a method for the C# compiler. The signature consists of a method name and the type and kind (value, reference, or output) 
+Immutable strings - why - imutable arrays are thread safe. Allows for compiler optimisations. They also provide size optimisation. Is safe to use them as method params.
+Method signature - is a unique identification of a method for the C# compiler. The signature consists of the method name and the parameters. 
 	of each of its formal parameters. Method signature does not include the return type.
 Constructor - is a special method of the class which gets automatically invoked whenever an instance of the class is created.
-	Is used to initialize the private fields of the class.
+	Is used to initialize the private fields of the class. It has no return type but the same name as the class.
+	if we don't specify a constructor the compiler generates a parameterless one for us.
+	A derived class when instantiated will always implicitly call the base class default constructor.
+	Constructors are not inherited and need to be explicitly defined in derived class
 Casting - there are 2 types of casting in c#
 	Upcasting = implicit casting, means converting a smaller/child class type to a larger/parent type class.
 	Dwoncasting = explicit casting, means converting a larger/parent class type to a smaller/child type class.
 Boxing 	- is the process of converting a value type to the type object or to any interface type implemented by this value type. Boxing is implicit.
 Unboxing- extracts the value type from the object. Unboxing is explicit.
 Nullable- a nullable Type is a data type is that contain the defined data type or the null value
+Nullable value types are value type variables marked with ? mark, in order to allow them to have the null value.
+Nullable data types are reference value variables or value type variables marked with ? mark.
 Objects and string types have a default value of null
 Default value of an int is 0
 Default value of a float is 0.0
@@ -99,26 +119,20 @@ Assembly - is a collection of types and resources that are built to work togethe
 	of executable (.exe) or dynamic link library (. dll) files, and are the building blocks of . NET applications
 Namespace - keyword is used to declare a scope that contains a set of related objects. You can use a namespace to organize code elements and to 
 	create globally unique types
-Object - an instance of a class that is created dynamically
-Multiple inheritance is not allowed in C#. The purpose behind multiple inheritance can be achieved by the implementation of multiple interfaces.
+Multiple inheritance is not allowed in C#. The purpose behind multiple inheritance can be achieved by the implementation of multiple interfaces and only 
+	one class can be inherited.
 Interface Explicit Implementation - Explicit implementation is used to resolve cases where two interfaces each declare different members of the 
 	same name such as a property or a method. To implement both interfaces, a class has to use explicit implementation either for the property 
 	P, or the method P, or both.
 Interface variable types - you are allowed to create a reference variable of an interface type or in other words, you are allowed to create an 
 	interface reference variable
-GET Request - A GET request is a way for you to grab data from a data source with the help of the internet. It’s done using the GET request method, 
-	which is a very common HTTP request method
-HTTP Request - is divided into three parts: Request line, header and body.
-HTTP Response - is also divided into three parts: Status line, header and body.
-Query String - is a part of a uniform resource locator (URL) that assigns values to specified parameters. The keys-values pairs are specified after the ? in the URL.
-HTTP Request Verbs - GET,HEAD,POST,PUT,DELETE,CONNECT,OPTIONS,TRACE,PATCH
 CRUD - stands for Create, Read, Update, Delete.
-Convention over Configuration - (or coding by convention) is a term that when a convention, or code pattern, is implemented by a tool to match the desired behavior, 
-	it behaves as expected without the use of any configuration files
+Convention over Configuration - as long as you respect the convention you don't have to make use of configururation.
 MVC	- The Model-View-Controller (MVC) architectural pattern separates an application into three main components: the model, the view, and the controller.
 Controller - contains the flow control logic for an ASP.NET MVC application. A controller determines what response to send back to a user when a user makes 
 	a browser request. A controller is written as a class
 Array - is a structure representing a fixed length collection of values or objects with the same type.
+Structures - are value types that contain fields. Content is stored on stack memory and are transmitted by value.
 MVC Model - contains all of your application logic that is not contained in a view or a controller. The model should contain all of your application business 
 	logic, validation logic, and database access logic.
 Abstract class vs Interface 
@@ -130,7 +144,7 @@ Abstract class vs Interface
 Value Data Type - short, int, char, float, double
 Reference Data Type - String, Class, Object and Interface
 Pointer Data Type - Pointers
-Literals - are the fixed value used by a variable that is predefined and cannot be modified during the execution of the code
+Literal	- is a source code representation of a value, that is hard-coded directly into the source code
 Dependency injection - A dependency is an object that another object depends on. Dependency Injection (or inversion) is basically providing the 
 	objects that an object needs, instead of having it construct the objects themselves.
 Dependency Inversion - The Dependency Inversion Principle (DIP) states that a high-level class must not depend upon a lower level class. 
@@ -149,3 +163,86 @@ SOLID Principles -
 Unit testing - The three sections of unit testing are arrange, act and assert.
 Unit testing vs Integration testing - Unit testing is a testing method by which individual units of source code are tested to determine if they are ready to use, 
 	whereas Integration testing checks integration between software modules.
+Moq - Library which can be used in unit testing to provide a result for certain parameters for the methods called from the unit that is up for testing.
+	The idea is to create a concrete implementation of an interface and control how certain methods on that interface responds when called. 
+	This will allow us to test units of code in isolation.
+Value type vs Reference type variables - A data type is a value type if it holds a data value within its own memory space.
+	A value type variable is hold in stack memory.
+	Value type variables in C# are: bool,byte,char,decimal,double,enum,float,int,long,sbyte,short,struct,uint,ulong,ushort
+	When you pass a value-type variable from one method to another, the system creates a separate copy of a variable
+	Unlike value types, a reference type doesn't store its value directly. Instead, it stores the address where the value is being stored.
+	The reference type variables are stored in HEAP.
+	Reference type variables in C#: String ,Arrays (even if their elements are value types),Class,Delegate
+	When you pass a reference type variable from one method to another, it doesn't create a new copy; instead, it passes the variable's address.
+IQueryable vs IEnumerable - The major difference between IQueryable and IEnumerable is that IQueryable adds filters to the query and executes the query only when 
+	ToList() is called whereas IEnumerable will bring all data and filter it afterwards. This means both memory and speed optimization.
+A finally block always executes, regardless of whether an exception is thrown.
+When catching exceptions, we should always catch more particular exceptions and more general exceptions afterwards.
+Async - methods marked with async contain methods that will force the entire method to be executed asyncronuously.
+Await - when the compiler finds await will move curent method to be executed in another thread, asyncronuously, while curent thread will continue to execute 
+	code from after the call to the async method.
+List vs Dictionary - The Dictionary map a key to a value and cannot have duplicate keys, whereas a list just contains a collection of values.
+Composite formatting: Console.WriteLine("Hello, {0}! Today is {1}, it's {2:HH:mm} now.", name, date.DayOfWeek, date);
+String interpolation: Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now.");
+Dependency 	- class Foo{ fooMethod(Bar bar){} }
+Association 	- class Foo{ private Bar bar; }
+Composition	- class Foo{ private Bar bar=new Bar(); } //when foo dies so does bar
+Aggregation	- class Foo{ private List<Bar> bars; }    //when Foo dies Bar live on
+
+URI	- A Uniform Resource Identifier (URI) is a unique sequence of characters that identifies a logical or 
+	physical resource used by web technologies.
+URL	- URL stands for Uniform Resource Locator. A URL is nothing more than the address of a given unique resource on the Web
+Cookie - A cookie is a piece of data from a website that is stored within a web browser that the website can retrieve at a later time. Cookies are 
+	used to tell the server that users have returned to a particular website. When users return to a website, a cookie provides information and 
+	allows the site to display selected settings and targeted content.
+	Cookies often store your settings for a website. When you return to the site, the browser sends back the cookies that belong to the site. 
+	This allows the site to present you with information customized to fit your needs.
+	Cookies can store a wide range of information, including personally identifiable information (such as your name, home address, 
+	email address, or telephone number).
+HTTP Request - is divided into three parts: Request Verb, header and body.
+HTTP Response - is also divided into three parts: Status Code, header and body.
+Query String - is a part of a uniform resource locator (URL) that assigns values to specified parameters. The keys-values pairs are specified after the ? in the URL.
+HTTP Request Verbs - GET,HEAD,POST,PUT,DELETE,CONNECT,OPTIONS,TRACE,PATCH
+
+STATUS CODES
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+1xx - informational
+2xx - success
+	200 OK
+	201 Created
+	204 No Content
+3xx - Redirect
+	307 - Temporary redirect
+	301 - Moved permanently
+4xx - Client Error
+	400 - Bad request
+	401 - Unauthorized
+	403 - Forbidden
+	404 - Not Found
+	409 - Conflict
+5xx	- Server error
+	500 - Internal server error
+	502 - Bad gateway
+HTTP - Hyper Text Transpher Protocol - Protocol is a convention between entities regarding comunication/data transfer
+HTTPS - HTTP SECURED. The information is encrypted using a certificate from the server. Information is harder to be stolen.
+3 Layers arhitecture
+- Presentation Layer  = made of buttons, colors, text, fonts, images, the visual part that the user is interracting with
+	- is the visual part(dummy) that is interactive
+	- written in: HTML, CSS, JAVASCRIPT
+	- is the front-end of an app
+- Business layer-
+	- represented by a webserver (backend)
+	- can be written in .NET, Java, Nod.js, Python, 
+	- is the brain of the app - controls everything (what is saved in the database, what is displayed to the user, has business rules)
+- Data Layer
+	- database server- storage and data retrieval
+Cache - stores data in the client's browser in order to increase perceived performance. Used for static resources, (images, js, css files, fonts)
+WEB Service - is a web app without presentation layer, no buttons, colors, layout, just data
+JSON - javascript object notation
+Serialize - transform from object to text for data transfer over the network
+Deserialize - transform from text to object
+Soap Services - old style of exposing data. All requests were made with the POST verb. The request was called soap envelope. 
+	XML was usually the data format used to respond
+REST Services - Representational State Transfer. Everything is treated as a resource. Leverages everything on http: Verbs,bodies, response, status codes.
+ORM - object relational mapping. Is a technique for converting data between C# objects and relational databases
+Entity Framework Fluent API is used to configure domain classes to override conventions.
