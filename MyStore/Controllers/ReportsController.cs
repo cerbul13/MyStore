@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyStore.Domain.Entities;
+using MyStore.Domain.Extensions;
+using MyStore.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +15,29 @@ namespace MyStore.Controllers
     [ApiController]
     public class ReportsController : ControllerBase
     {
-        // GET: api/<ReportsController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IReportsService reportsService;
+        public ReportsController(IReportsService reportsService)
         {
-            return new string[] { "value1", "value2" };
+            this.reportsService = reportsService;
         }
+        [HttpGet]
+        public List<Customer> CustomerWithNoOrders()
+        {
+            return reportsService.GetCustomersWithNoOrders();
+        }
+        [HttpGet] //[HttpGet("/api/contacts")]
+        [Route("Contacts")]
+        public ActionResult<List<CustomerContact>> CustomerContacts()
+        {
+            var contacts = reportsService.GetContacts() ;
+            return Ok(contacts);
+        }
+        //// GET: api/<ReportsController>
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
         // GET api/<ReportsController>/5
         [HttpGet("{id}")]
