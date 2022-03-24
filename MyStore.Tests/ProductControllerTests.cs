@@ -70,8 +70,12 @@ namespace MyStore.Tests
         //public async Task<IActionResult> GetAll()
         {
             HttpClient client = new HttpClient();
-            //var openTestOrdersUrl = config.GetValue<string>("MySettings:OpenWeatherMapUrl");
-            HttpResponseMessage response = await client.GetAsync("http://localhost:5000/api/orders?listOfTowns=Warszawa&listOfTowns=Reims");
+            var config = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json").Build();
+            var openTestOrdersUrl = config.GetValue<string>("MySettings:OpenTestOrdersUrl");
+            //HttpResponseMessage response = await client.GetAsync("http://localhost:5000/api/orders?listOfTowns=Warszawa&listOfTowns=Reims");
+            HttpResponseMessage response = await client.GetAsync($"{openTestOrdersUrl}");
             List<Order> ordersList = new List<Order>();
             var contentData = string.Empty;
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
