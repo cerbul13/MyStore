@@ -19,12 +19,14 @@ using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using Xunit;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace MyStore.Tests
 {
     public class ProductControllerTests//:Controller
     {
         private Mock<IProductService> mockProductService;
+        //private readonly IConfiguration config;
         //private readonly StoreContext context;
         //private readonly IProductRepository productRepository;
         //private readonly IProductService productService;
@@ -36,7 +38,6 @@ namespace MyStore.Tests
             //var optionsBuilder = new DbContextOptionsBuilder<StoreContext>();
             //optionsBuilder.UseSqlServer(connectionString);
             //context = new StoreContext(optionsBuilder.Options);
-
             mockProductService = new Mock<IProductService>();
 
             //productRepository = new ProductRepository(context);
@@ -68,8 +69,9 @@ namespace MyStore.Tests
         public async void Integration_Should_Return_Count_andOK_OnGetAll()
         //public async Task<IActionResult> GetAll()
         {
-            HttpClient client = new HttpClient();            
-            HttpResponseMessage response = await client.GetAsync($"http://localhost:5000/api/orders?listOfTowns=Warszawa&listOfTowns=Reims");
+            HttpClient client = new HttpClient();
+            //var openTestOrdersUrl = config.GetValue<string>("MySettings:OpenWeatherMapUrl");
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5000/api/orders?listOfTowns=Warszawa&listOfTowns=Reims");
             List<Order> ordersList = new List<Order>();
             var contentData = string.Empty;
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
