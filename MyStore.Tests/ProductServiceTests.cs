@@ -1,4 +1,8 @@
-﻿using Moq;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Moq;
+using MyStore.Data;
+using MyStore.Domain.Entities;
 using MyStore.Models;
 using MyStore.Services;
 using System;
@@ -12,45 +16,115 @@ namespace MyStore.Tests
 {
     public class ProductServiceTests
     {
+        private Mock<IProductRepository> mockProductRepository;
+        private Mock<IMapper> mockMapper;
         public ProductServiceTests()
         {
-
+            mockProductRepository = new Mock<IProductRepository>();
+            mockMapper = new Mock<IMapper>();
         }
         [Fact]
-        public void Should_GetAllProducts()
+        public void Should_Return_Count_and_Type_OnGetAll()
         {
             //arrange
-            var mockRepo = new Mock<IProductService>();
-            //mockRepo.Object.toate metodele din interfata
-            mockRepo.Setup(repo => repo.GetAllProducts())
-                    .Returns(ReturnMultiple());
+            mockProductRepository.Setup(x => x.GetAll())
+                .Returns(MultipleProducts());
+            var service = new ProductService(mockProductRepository.Object,mockMapper.Object);
             //act
-            var result = mockRepo.Object.GetAllProducts();
+            var response = service.GetAllProducts();
             //assert
-            Assert.Equal(2, result.Count());
-            Assert.IsType<List<ProductModel>>(result);
+            Assert.IsType<List<ProductModel>>(response);
+            Assert.Equal(MultipleProducts().Count(), response.Count());
         }
-        private List<ProductModel> ReturnMultiple()
+        [Fact]
+        public void ShouldReturn_Type_On_Post()
         {
-            return new List<ProductModel>()
-                    {
-                        new ProductModel{
-                            Productid=1,
-                            Categoryid=1,
-                            Productname="test",
-                            Supplierid=2,
-                            Unitprice=10,
-                            Discontinued=true
-                        },
-                        new ProductModel{
-                            Productid=2,
-                            Categoryid=2,
-                            Productname="test2",
-                            Supplierid=3,
-                            Unitprice=100,
-                            Discontinued=true
-                    }
-                    };
+            ////arrange       
+            mockProductRepository.Setup(x => x.Add(MultipleProducts()[1])).Returns(MultipleProducts()[1]);
+            //mockProductService.Setup(x => x.AddProduct(It.IsAny<ProductModel>())).Returns(MultipleProducts()[1]);
+            // Arrange
+            var service = new ProductService(mockProductRepository.Object,mockMapper.Object);
+            // Act
+            var response = service.AddProduct(MultipleProductsModel()[1]);
+            // Assert
+            Assert.IsType<ProductModel>(response);
+            //Assert.IsType<CreatedAtActionResult>(response);
+        }
+        [Fact]
+        public void ShouldReturn_true_On_Delete()
+        {
+            ////arrange                     
+            mockProductRepository.Setup(x => x.Delete(MultipleProducts()[1])).Returns(true);//.Returns(Ok(MutipleProducts()[2]));
+            // Arrange
+            var service = new ProductService(mockProductRepository.Object,mockMapper.Object);
+            // Act
+            var response = service.Delete(MultipleProducts()[1].Productid);
+            // Assert
+            Assert.Equal(true,response);
+        }
+        private List<Product> MultipleProducts()
+        {
+            return new List<Product>() {
+            new Product
+            {
+                Categoryid = (int)Consts.Categories.Condiments,
+                Productid = Consts.TestProduct,
+                Productname = Consts.ProductName,
+                Discontinued = false,
+                Supplierid=Consts.TestSupplierId,
+                Unitprice=Consts.TestUnitPrice
+            },
+            new Product
+            {
+                Categoryid = (int)Consts.Categories.Condiments,
+                Productid = Consts.TestProduct+1,
+                Productname = Consts.ProductName,
+                Discontinued = false,
+                Supplierid=Consts.TestSupplierId,
+                Unitprice=Consts.TestUnitPrice
+            },
+            new Product
+            {
+                Categoryid = (int)Consts.Categories.Condiments,
+                Productid = Consts.TestProduct+2,
+                Productname = Consts.ProductName,
+                Discontinued = false,
+                Supplierid=Consts.TestSupplierId,
+                Unitprice=Consts.TestUnitPrice
+            },
+            };
+        }
+        private List<ProductModel> MultipleProductsModel()
+        {
+            return new List<ProductModel>() {
+            new ProductModel
+            {
+                Categoryid = (int)Consts.Categories.Condiments,
+                Productid = Consts.TestProduct,
+                Productname = Consts.ProductName,
+                Discontinued = false,
+                Supplierid=Consts.TestSupplierId,
+                Unitprice=Consts.TestUnitPrice
+            },
+            new ProductModel
+            {
+                Categoryid = (int)Consts.Categories.Condiments,
+                Productid = Consts.TestProduct+1,
+                Productname = Consts.ProductName,
+                Discontinued = false,
+                Supplierid=Consts.TestSupplierId,
+                Unitprice=Consts.TestUnitPrice
+            },
+            new ProductModel
+            {
+                Categoryid = (int)Consts.Categories.Condiments,
+                Productid = Consts.TestProduct+2,
+                Productname = Consts.ProductName,
+                Discontinued = false,
+                Supplierid=Consts.TestSupplierId,
+                Unitprice=Consts.TestUnitPrice
+            },
+            };
         }
     }
 }

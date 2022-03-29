@@ -20,7 +20,6 @@ namespace MyStore.Services
         public ReportsService(IReportsRepository reportsRepository)
         {
             this.reportsRepository = reportsRepository;
-
         }
         public List<Customer> GetCustomersWithNoOrders()
         {
