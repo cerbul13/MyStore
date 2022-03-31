@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyStore.Domain.Entities;
+using MyStore.Infrastructure.Attributes;
 using MyStore.Models;
 using MyStore.Services;
 using System;
@@ -26,6 +27,7 @@ namespace MyStore.Controllers
 
         // GET: api/<ProductsController>
         [HttpGet]
+        [ResponseHeader("Awesome-Header","From-Web-Api-Filter")]
         public ActionResult<IEnumerable<ProductModel>> Get()
         {
             string[] games = {"Morrowind", "BioShock", "Daxter","The Darkness", "Half Life", "System Shock 2"};
