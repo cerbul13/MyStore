@@ -158,12 +158,12 @@ Value Data Type - short, int, char, float, double
 Reference Data Type - String, Class, Object and Interface
 Pointer Data Type - Pointers
 Literal	- is a source code representation of a value, that is hard-coded directly into the source code
-Dependency injection - A dependency is an object that another object depends on. Dependency Injection (or inversion) is basically providing the 
-	objects that an object needs, instead of having it construct the objects themselves.
+Dependency injection - A dependency is an object that another object depends on. Dependency Injection is basically having the platform providing the 
+	dependency objects that an object needs, instead of having the object constructing them by itself.
 Dependency Inversion - The Dependency Inversion Principle (DIP) states that a high-level class must not depend upon a lower level class. 
-	They must both depend upon abstractions
+	They must both depend upon abstractions. The way we can achieve dependency inversion is by using dependency injection.
 SOLID Principles - 
-	Single Responsibility Principle (SRP) - A class should have one, and only one, reason to change.
+	Single Responsibility Principle (SRP) - A class should have one, and only one, reason to change. In other words a class should handle a single thing.
 	Open Closed Principle (OCP)	      - Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
 	Liskov Substitution Principle (LSP)   - The principle defines that objects of a superclass shall be replaceable with objects of its subclasses without 
 						breaking the application. That requires the objects of your subclasses to behave in the same way as the objects 
@@ -197,10 +197,10 @@ Await - when the compiler finds await will move curent method to be executed in 
 List vs Dictionary - The Dictionary map a key to a value and cannot have duplicate keys, whereas a list just contains a collection of values.
 Composite formatting: Console.WriteLine("Hello, {0}! Today is {1}, it's {2:HH:mm} now.", name, date.DayOfWeek, date);
 String interpolation: Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now.");
-Dependency 	- class Foo{ fooMethod(Bar bar){} }
-Association 	- class Foo{ private Bar bar; }
-Composition	- class Foo{ private Bar bar=new Bar(); } //when foo dies so does bar
-Aggregation	- class Foo{ private List<Bar> bars; }    //when Foo dies Bar live on
+Dependency 	- class Foo{ fooMethod(Bar bar){} }	- Bar object is called as a parameter to a method.
+Association 	- class Foo{ private Bar bar; }		- Bar object is declared as a "Has a" relationship with the class.
+Composition	- class Foo{ private Bar bar=new Bar(); } //when foo dies so does bar. Instantiation is done at Bar field declaration.
+Aggregation	- class Foo{ private List<Bar> bars; }    //when Foo dies Bar live on. Similar to association but for list of objects.
 Exceptions - User defined exceptions should inherit from System.ApplicationException
 
 URI	- A Uniform Resource Identifier (URI) is a unique sequence of characters that identifies a logical or 
