@@ -101,15 +101,15 @@ Immutable strings - strings are imutable because their size cannot be modified. 
 	In order to use a string that has the option to modify their size use stringbuilder instead.
 Immutable strings - why - imutable arrays are thread safe. Allows for compiler optimisations. They also provide size optimisation. Is safe to use them as method params.
 Method signature - is a unique identification of a method for the C# compiler. The signature consists of the method name and the parameters. 
-	of each of its formal parameters. Method signature does not include the return type.
+	Method signature does not include the return type.
 Constructor - is a special method of the class which gets automatically invoked whenever an instance of the class is created.
 	Is used to initialize the private fields of the class. It has no return type but the same name as the class.
 	if we don't specify a constructor the compiler generates a parameterless one for us.
 	A derived class when instantiated will always implicitly call the base class default constructor.
 	Constructors are not inherited and need to be explicitly defined in derived class
 Casting - there are 2 types of casting in c#
-	Upcasting = implicit casting, means converting a smaller/child class type to a larger/parent type class.
-	Dwoncasting = explicit casting, means converting a larger/parent class type to a smaller/child type class.
+	Upcasting = implicit casting, means converting a lower level/child class type to a bigger level/parent type class.
+	Dwoncasting = explicit casting, means converting a bigger level/parent class type to a lower level/child type class.
 Boxing 	- is the process of converting a value type to the type object or to any interface type implemented by this value type. Boxing is implicit.
 Unboxing- extracts the value type from the object. Unboxing is explicit.
 Nullable- a nullable Type is a data type is that contain the defined data type or the null value
@@ -142,12 +142,12 @@ Interface variable types - you are allowed to create a reference variable of an 
 CRUD - stands for Create, Read, Update, Delete.
 Convention over Configuration - as long as you respect the convention you don't have to make use of configururation.
 MVC	- The Model-View-Controller (MVC) architectural pattern separates an application into three main components: the model, the view, and the controller.
-Controller - contains the flow control logic for an ASP.NET MVC application. A controller determines what response to send back to a user when a user makes 
+MVC Controller - contains the flow control logic for an ASP.NET MVC application. A controller determines what response to send back to a user when a user makes 
 	a browser request. A controller is written as a class
-Array - is a structure representing a fixed length collection of values or objects with the same type.
-Structures - are value types that contain fields. Content is stored on stack memory and are transmitted by value.
 MVC Model - contains all of your application logic that is not contained in a view or a controller. The model should contain all of your application business 
 	logic, validation logic, and database access logic.
+Array - is a structure representing a fixed length collection of values or objects with the same type.
+Structures - are value types that contain fields. Content is stored on stack memory and are transmitted by value.
 Abstract class vs Interface 
 	- abstract class can have members implemented
 	- abstract class can have different access modifiers for their members while interfaces have only public access modifiers.
@@ -174,11 +174,12 @@ SOLID Principles -
 						level class. They must both depend upon abstractions. And, secondly, an abstraction must not depend 
 						upon details, but the details must depend upon abstractions.
 Unit testing - The three sections of unit testing are arrange, act and assert.
-Unit testing vs Integration testing - Unit testing is a testing method by which individual units of source code are tested to determine if they are ready to use, 
+Unit testing vs Integration testing - Unit testing is a testing method by which individual units of source code are tested in isolation to determine if they are ready to use, 
 	whereas Integration testing checks integration between software modules.
-Moq - Library which can be used in unit testing to provide a result for certain parameters for the methods called from the unit that is up for testing.
+Moq - Library which can be used in unit testing to provide a result for certain methods called from the unit that is up for testing.
 	The idea is to create a concrete implementation of an interface and control how certain methods on that interface responds when called. 
-	This will allow us to test units of code in isolation.
+	Is a process used in unit testing when the unit being tested has external dependencies. 
+	Mocking means to provide dummy/hardcoded values to dependencies so that the code can be tested in isolation.
 Value type vs Reference type variables - A data type is a value type if it holds a data value within its own memory space.
 	A value type variable is hold in stack memory.
 	Value type variables in C# are: bool,byte,char,decimal,double,enum,float,int,long,sbyte,short,struct,uint,ulong,ushort
@@ -202,17 +203,22 @@ Association 	- class Foo{ private Bar bar; }		- Bar object is declared as a "Has
 Composition	- class Foo{ private Bar bar=new Bar(); } //when foo dies so does bar. Instantiation is done at Bar field declaration.
 Aggregation	- class Foo{ private List<Bar> bars; }    //when Foo dies Bar live on. Similar to association but for list of objects.
 Exceptions - User defined exceptions should inherit from System.ApplicationException
+LINQ	- language integrated query
+Anonymous Method - is a method which doesn’t contain any name. It is useful when the user wants to create an inline method and also wants to pass parameter 
+	in the anonymous method like other methods. An Anonymous method is defined using the delegate keyword and the user can assign this method to a 
+	variable of the delegate type.
+Lambda expressions - in C# are used like anonymous functions, with the difference that in Lambda expressions you don’t need to specify the type of the value 
+	that you input thus making it more flexible to use. The Lambda expression is divided into two parts, the left side is the input and the right is the expression.
+	The left side specifies the parameter that iterates the objects that the lambda function is applied to, while the right side is the method return expression that is
+	based on the input value.
 
 URI	- A Uniform Resource Identifier (URI) is a unique sequence of characters that identifies a logical or 
 	physical resource used by web technologies.
 URL	- URL stands for Uniform Resource Locator. A URL is nothing more than the address of a given unique resource on the Web
 http://www.w3schools.com  /html/html_page.html?key=value&key2=value2#anchor
 scheme|machine/domain name|path               |query string         |fragment to scroll
-Cookies	- 
-	Cookies are small files that are created on the client’s hard drive (or, if they’re temporary, in the web browser’s memory)
-	
-Cookie - Cookies are small files that are created on the client’s hard drive so that the website that created them can retrieve them at a later time. 
-	(or, if they’re temporary, in the web browser’s memory). 
+Cookies - Cookies are small files that are created on the client’s hard drive so that the website that created them can retrieve them at a later time. 
+	(or, if they’re temporary cookies then they are stored in the web browser’s memory). 
 	When users return to a website, a cookie provides information and allows the site to display selected settings and targeted content.
 	Cookies can store a wide range of information, including personally identifiable information (such as your name, home address, 
 	email address, or telephone number). Cookies are a poor choice for complex or private information or large amounts of data.
@@ -261,8 +267,8 @@ HTTPS - HTTP SECURED. The information is encrypted using a certificate from the 
 Cache - stores data in the client's browser in order to increase perceived performance. Used for static resources, (images, js, css files, fonts)
 WEB Service - is a web app without presentation layer, no buttons, colors, layout, just data
 JSON - javascript object notation
-Serialize - transform from object to text for data transfer over the network
-Deserialize - transform from text to object
+Serialize - transform from object to text/json for data transfer over the network or for later use
+Deserialize - transform from text/json to object
 Soap Services - old style of exposing data. All requests were made with the POST verb. The request was called soap envelope. 
 	XML was usually the data format used to respond
 REST Services - Representational State Transfer. Everything is treated as a resource. Leverages everything on http: Verbs,bodies, response, status codes.
@@ -272,13 +278,3 @@ Entity Framework Fluent API is used to configure domain classes to override conv
 Accept vs Content Type - Accept header is used by HTTP clients to tell the server which type of content they expect/prefer as response. Content-type 
 	can be used both by clients and servers to identify the format of the data in their request (client) or response (server) and, therefore, 
 	help the other part interpret correctly the information.
-LINQ	- language integrated query
-Anonymous Method - is a method which doesn’t contain any name. It is useful when the user wants to create an inline method and also wants to pass parameter 
-	in the anonymous method like other methods. An Anonymous method is defined using the delegate keyword and the user can assign this method to a 
-	variable of the delegate type.
-Lambda expressions - in C# are used like anonymous functions, with the difference that in Lambda expressions you don’t need to specify the type of the value 
-	that you input thus making it more flexible to use. The Lambda expression is divided into two parts, the left side is the input and the right is the expression.
-	The left side specifies the parameter that iterates the objects that the lambda function is applied to, while the right side is the method return expression that is
-	based on the input value.
-Mocking - is a process used in unit testing when the unit being tested has external dependencies. 
-	Mocking means to provide dummy/hardcoded values to dependencies so that the code can be tested in isolation.
