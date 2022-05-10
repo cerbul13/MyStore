@@ -8,24 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Dan Cerba\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Dan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dan Cerba\\source\\repos\\MyStore2\\MyStore.Domain\\MyStore.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Dan\\source\\repos\\MyStore\\MyStore.Domain\\MyStore.Domain.csproj",
       "projectName": "MyStore.Domain",
-      "projectPath": "C:\\Users\\Dan Cerba\\source\\repos\\MyStore2\\MyStore.Domain\\MyStore.Domain.csproj",
-      "packagesPath": "C:\\Users\\Dan Cerba\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dan Cerba\\source\\repos\\MyStore2\\MyStore.Domain\\obj\\",
+      "projectPath": "C:\\Users\\Dan\\source\\repos\\MyStore\\MyStore.Domain\\MyStore.Domain.csproj",
+      "packagesPath": "C:\\Users\\Dan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dan\\source\\repos\\MyStore\\MyStore.Domain\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Dan Cerba\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Dan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -65,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
