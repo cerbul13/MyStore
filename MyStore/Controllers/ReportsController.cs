@@ -32,12 +32,6 @@ namespace MyStore.Controllers
             var contacts = reportsService.GetContacts() ;
             return Ok(contacts);
         }
-        //// GET: api/<ReportsController>
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
 
         // GET api/<ReportsController>/5
         [HttpGet("{id}")]

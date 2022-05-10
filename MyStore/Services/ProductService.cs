@@ -19,7 +19,7 @@ namespace MyStore.Services
         bool Exists(int id);
         IEnumerable<ProductModel> GetAllProducts();
         ProductModel GetById(int id);
-        void UpdateProduct(ProductModel model);
+        ProductModel UpdateProduct(ProductModel model);
     }
 
     public class ProductService : IProductService
@@ -41,28 +41,6 @@ namespace MyStore.Services
             var productModels = mapper.Map<IEnumerable<ProductModel>>(allProducts);
 
             return productModels;
-            //for (int i = 0; i < allProducts.Count(); i++)
-            //{
-            //    var productModel = new ProductModel();
-            //    productModel.Categoryid = allProducts[i].Categoryid;
-            //    productModel.Productid = allProducts[i].Productid;
-            //    productModel.Productname = allProducts[i].Productname;
-            //    productModel.Unitprice = allProducts[i].Unitprice;
-            //    productModel.Discontinued = allProducts[i].Discontinued;
-            //}
-
-            //1 la 1
-            //var source = new Product();
-            //var destination = new ProductModel();
-
-            //destination.Categoryid = source.Categoryid;
-            //destination.Discontinued = source.Discontinued;
-            //destination.Productid = source.Productid;
-            //destination.Productname = source.Productname;
-            //destination.Supplierid = source.Supplierid;
-            //destination.Unitprice = source.Unitprice;
-
-
 
         }
 
@@ -77,30 +55,21 @@ namespace MyStore.Services
         }
         public ProductModel AddProduct(ProductModel newProduct)
         {
-            //Product addedProduct = mapper.Map<Product>(newProduct);
-            //return productRepository.Add(addedProduct);
-
             Product productToAdd = mapper.Map<Product>(newProduct);
             productRepository.Add(productToAdd);
-            //var addedProduct = productRepository.Add(productToAdd);
-            //newProduct = mapper.Map<ProductModel>(addedProduct);
+
             return newProduct;
         }
-        public void UpdateProduct(ProductModel model)
+        public ProductModel UpdateProduct(ProductModel model)
         {
             Product productToUpdate = mapper.Map<Product>(model);
-            productRepository.Update(productToUpdate);
+            var updatedProduct = productRepository.Update(productToUpdate);
+            return mapper.Map<ProductModel>(updatedProduct);
         }
         public bool Delete(int id)
         {
             Product itemToDelete = productRepository.GetById(id);
             return productRepository.Delete(itemToDelete);
-            //if (itemToDelete!=null)
-            //{
-            //    productRepository.Delete(itemToDelete);
-            //    return OkObjectResult;
-            //}
-            //return NotFound();
         }
     }
 }

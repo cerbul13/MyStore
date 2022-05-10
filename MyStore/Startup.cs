@@ -45,6 +45,12 @@ namespace MyStore
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAutoMapper(typeof(ProductProfile));
+            services.AddAutoMapper(typeof(CategoryProfile));
+            services.AddAutoMapper(typeof(CustomerProfile));
+            services.AddAutoMapper(typeof(EmployeeProfile));
+            services.AddAutoMapper(typeof(OrderDetailProfile));
+            services.AddAutoMapper(typeof(OrderProfile));
+            services.AddAutoMapper(typeof(SupplierProfile));
 
             //load the appsettings in a strongly typed class
             services.Configure<MySettings>(Configuration.GetSection("MySettings"));

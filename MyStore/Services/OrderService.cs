@@ -52,13 +52,9 @@ namespace MyStore.Services
         }
         public OrderModel AddOrder(OrderModel newOrder)
         {
-            //Order addedOrder = mapper.Map<Order>(newOrder);
-            //return orderRepository.Add(addedOrder);
 
             Order orderToAdd = mapper.Map<Order>(newOrder);
             orderRepository.Add(orderToAdd);
-            //var addedOrder = orderRepository.Add(orderToAdd);
-            //newOrder = mapper.Map<OrderModel>(addedOrder);
             return newOrder;
         }
         public void UpdateOrder(OrderModel model)

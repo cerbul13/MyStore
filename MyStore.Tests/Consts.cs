@@ -12,7 +12,7 @@ namespace MyStore.Tests
         public static int TestProduct = 1;
         public static int TestSupplierId = 4;
         public static decimal TestUnitPrice = 3.5M;
-        public const string ProductName = "Test Product Name 1";
+        public const string ProductName = "test";
         public enum Categories
         {
             Condiments=2,

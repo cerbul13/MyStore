@@ -11,9 +11,6 @@ namespace MyStore.Data
     public interface ISupplierRepository
     {
         Supplier Add(Supplier newSupplier);
-
-        ///data access code
-        ///CRUD
         IEnumerable<Supplier> GetAll();
         Supplier GetById(int id);
         void Update(Supplier supplierToUpdate);
@@ -35,10 +32,6 @@ namespace MyStore.Data
             return context.Suppliers.ToList();
         }
 
-        //public IEnumerable<Supplier> FindByCategory(int categoryId)
-        //{
-        //    return context.Suppliers.Where(x => x. == categoryId).ToList();
-        //}
         public Supplier GetById(int id)
         {
             try

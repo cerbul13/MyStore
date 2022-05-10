@@ -26,12 +26,12 @@ namespace MyStore.Data
         {
             this.context = context;
         }
-        public IQueryable<Order> GetAll(string shipCountry/*, List<string> shipCities*/)
+        public IQueryable<Order> GetAll(string shipCountry)
         {
             var query = this.context.Orders.Include(x => x.Cust).Select(x=>x);
 
-            if (!string.IsNullOrEmpty(shipCountry)) //de facut tema si list de shipCity
-                                                    //select * from Orders where shipcity  in ('Warszawa', 'Reims')
+            if (!string.IsNullOrEmpty(shipCountry)) 
+                                                    
             {
                 query = query.Where(x => x.Shipcountry == shipCountry);
             }
@@ -45,8 +45,8 @@ namespace MyStore.Data
                 .Include(x=>x.OrderDetails)
                 .Select(x => x);
 
-            if (shipCities.Count!=0) //de facut tema si list de shipCity
-                                                    //select * from Orders where shipcity  in ('Warszawa', 'Reims')
+            if (shipCities.Count!=0) 
+                                                    
             {
                 query = query.Where(x => shipCities.Contains(x.Shipcity));
             }
@@ -61,7 +61,7 @@ namespace MyStore.Data
             return query;
         }
         public Order GetById(int id)
-        {//return context.Orders.FirstOrDefault(x=>x.OrderId==id)
+        {
             try
             {
                 var result = context.Orders.FirstOrDefault(x => x.Orderid == id);

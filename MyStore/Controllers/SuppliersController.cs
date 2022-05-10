@@ -60,7 +60,6 @@ namespace MyStore.Controllers
             var addedSupplier = supplierService.AddSupplier(newSupplier);
             
             return CreatedAtAction("Get", new { id = addedSupplier.Supplierid }, addedSupplier);
-            //return CreatedAtAction("Get", newSupplier,new { id = newSupplier.Supplierid });
         }
 
         // PUT api/<SuppliersController>/5
@@ -94,9 +93,6 @@ namespace MyStore.Controllers
             }
             supplierService.Delete(id);
             return NoContent();
-            //search the object with the id
-            //delete the object
-            //return no content
         }
     }
 }

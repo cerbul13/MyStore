@@ -40,29 +40,6 @@ namespace MyStore.Services
             var employeeModels = mapper.Map<IEnumerable<EmployeeModel>>(allEmployees);
 
             return employeeModels;
-            //for (int i = 0; i < allEmployees.Count(); i++)
-            //{
-            //    var employeeModel = new EmployeeModel();
-            //    employeeModel.Categoryid = allEmployees[i].Categoryid;
-            //    employeeModel.Employeeid = allEmployees[i].Employeeid;
-            //    employeeModel.Employeename = allEmployees[i].Employeename;
-            //    employeeModel.Unitprice = allEmployees[i].Unitprice;
-            //    employeeModel.Discontinued = allEmployees[i].Discontinued;
-            //}
-
-            //1 la 1
-            //var source = new Employee();
-            //var destination = new EmployeeModel();
-
-            //destination.Categoryid = source.Categoryid;
-            //destination.Discontinued = source.Discontinued;
-            //destination.Employeeid = source.Employeeid;
-            //destination.Employeename = source.Employeename;
-            //destination.Supplierid = source.Supplierid;
-            //destination.Unitprice = source.Unitprice;
-
-
-
         }
 
         public EmployeeModel GetById(int id)
@@ -76,13 +53,9 @@ namespace MyStore.Services
         }
         public EmployeeModel AddEmployee(EmployeeModel newEmployee)
         {
-            //Employee addedEmployee = mapper.Map<Employee>(newEmployee);
-            //return employeeRepository.Add(addedEmployee);
 
             Employee employeeToAdd = mapper.Map<Employee>(newEmployee);
             employeeRepository.Add(employeeToAdd);
-            //var addedEmployee = employeeRepository.Add(employeeToAdd);
-            //newEmployee = mapper.Map<EmployeeModel>(addedEmployee);
             return newEmployee;
         }
         public void UpdateEmployee(EmployeeModel model)

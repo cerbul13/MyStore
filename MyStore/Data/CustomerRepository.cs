@@ -35,10 +35,6 @@ namespace MyStore.Data
             return context.Customers.ToList();
         }
 
-        //public IEnumerable<Customer> FindByCategory(int categoryId)
-        //{
-        //    return context.Customers.Where(x => x.Categoryid == categoryId).ToList();
-        //}
         public Customer GetById(int id)
         {
             try

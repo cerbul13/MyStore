@@ -52,9 +52,6 @@ namespace MyStore.Services
         }
         public SupplierModel AddSupplier(SupplierModel newSupplier)
         {
-            //Supplier addedSupplier = mapper.Map<Supplier>(newSupplier);
-            //return supplierRepository.Add(addedSupplier);
-
             Supplier supplierToAdd = mapper.Map<Supplier>(newSupplier);
             var addedSupplier = supplierRepository.Add(supplierToAdd);
             newSupplier = mapper.Map<SupplierModel>(addedSupplier);

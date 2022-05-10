@@ -39,7 +39,7 @@ namespace MyStore.Data
             return context.OrderDetails.Where(x => x.Orderid == categoryId).ToList();
         }
         public OrderDetail GetById(int id)
-        {//return context.OrderDetails.FirstOrDefault(x=>x.OrderDetailId==id)
+        {
             try
             {
                 var result = context.OrderDetails.FirstOrDefault(x => x.Orderid == id);

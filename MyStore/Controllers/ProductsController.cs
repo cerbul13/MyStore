@@ -75,7 +75,6 @@ namespace MyStore.Controllers
             var addedProduct = productService.AddProduct(newProduct);
             
             return CreatedAtAction("Get", new { id = addedProduct.Productid }, addedProduct);
-            //return CreatedAtAction("Get", newProduct,new { id = newProduct.Productid });
         }
 
         // PUT api/<ProductsController>/5
@@ -84,7 +83,7 @@ namespace MyStore.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent, Type=typeof(ProductModel))]
         [Consumes(MediaTypeNames.Application.Json)]
-        public IActionResult Put(int id, [FromBody] ProductModel productToUpdate)
+        public ActionResult<ProductModel> Put(int id, [FromBody] ProductModel productToUpdate)
         {
             //exists by 
             if (id!=productToUpdate.Productid)
@@ -95,8 +94,8 @@ namespace MyStore.Controllers
             {
                 return NotFound();
             }
-            productService.UpdateProduct(productToUpdate);
-            return NoContent();
+            var updatedProduct = productService.UpdateProduct(productToUpdate);
+            return Ok(updatedProduct);
         }
 
         // DELETE api/<ProductsController>/5
@@ -109,14 +108,9 @@ namespace MyStore.Controllers
             {
                 return NotFound();
             }
-            //productService.Delete(id);
-            //var productToDelete = new ProductService();
-            //var productToDelete = (productService.GetById(id);
             productService.Delete(id);
             return NoContent(); 
-            //search the object with the id
-            //delete the object
-            //return no content
+
         }
     }
 }

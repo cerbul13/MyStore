@@ -73,7 +73,6 @@ namespace MyStore.Controllers
             var addedOrderDetail = orderDetailService.AddOrderDetail(newOrderDetail);
 
             return CreatedAtAction("Get", new { id = addedOrderDetail.Orderid }, addedOrderDetail);
-            //return CreatedAtAction("Get", newOrderDetailt,new { id = newOrderDetail.OrderDetailid });
         }
 
         // PUT api/<OrderDetailsController>/5
@@ -109,9 +108,6 @@ namespace MyStore.Controllers
             }
             orderDetailService.Delete(id);
             return NoContent();
-            //search the object with the id
-            //delete the object
-            //return no content
         }
     }
 }

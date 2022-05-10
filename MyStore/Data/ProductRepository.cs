@@ -16,12 +16,10 @@ namespace MyStore.Data
 {
     public interface IProductRepository
     {
-        ///data access code
-        ///CRUD
         IEnumerable<Product> GetAll();
         Product GetById(int id);
         Product Add(Product newProduct);
-        void Update(Product productToUpdate);
+        Product Update(Product productToUpdate);
         bool Exists(int id);
         bool Delete(Product productToDelete);
     }
@@ -45,7 +43,7 @@ namespace MyStore.Data
             return context.Products.Where(x => x.Categoryid == categoryId).ToList();
         }
         public Product GetById(int id)
-        {//return context.Products.FirstOrDefault(x=>x.ProductId==id)
+        {
             try
             {
                 var result = context.Products.FirstOrDefault(x => x.Productid == id);
@@ -62,10 +60,11 @@ namespace MyStore.Data
             context.SaveChanges();
             return addedProduct.Entity;
         }
-        public void Update(Product productToUpdate)
+        public Product Update(Product productToUpdate)
         {
-            context.Products.Update(productToUpdate);
+            var updatedProduct = context.Products.Update(productToUpdate);
             context.SaveChanges();
+            return updatedProduct.Entity;
         }
         public bool Exists(int id)
         {
@@ -77,9 +76,6 @@ namespace MyStore.Data
             var deletedItem=context.Products.Remove(productToDelete);
             context.SaveChanges();            
             return deletedItem != null;
-            //context.HttpContext.Response.StatusCode = StatusCodes.Status204NoContent; 
-                       
-            //ActionResult(StatusCodes.Status204NoContent); 
         }
     }
 }

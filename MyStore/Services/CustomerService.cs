@@ -53,9 +53,6 @@ namespace MyStore.Services
         }
         public CustomerModel AddCustomer(CustomerModel newCustomer)
         {
-            //Customer addedCustomer = mapper.Map<Customer>(newCustomer);
-            //return customerRepository.Add(addedCustomer);
-
             Customer customerToAdd = mapper.Map<Customer>(newCustomer);
             var addedCustomer = customerRepository.Add(customerToAdd);
             newCustomer = mapper.Map<CustomerModel>(addedCustomer);

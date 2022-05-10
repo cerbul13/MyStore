@@ -40,28 +40,6 @@ namespace MyStore.Services
             var categoryModels = mapper.Map<IEnumerable<CategoryModel>>(allCategorys);
 
             return categoryModels;
-            //for (int i = 0; i < allCategorys.Count(); i++)
-            //{
-            //    var categoryModel = new CategoryModel();
-            //    categoryModel.Categoryid = allCategorys[i].Categoryid;
-            //    categoryModel.Categoryid = allCategorys[i].Categoryid;
-            //    categoryModel.Categoryname = allCategorys[i].Categoryname;
-            //    categoryModel.Unitprice = allCategorys[i].Unitprice;
-            //    categoryModel.Discontinued = allCategorys[i].Discontinued;
-            //}
-
-            //1 la 1
-            //var source = new Category();
-            //var destination = new CategoryModel();
-
-            //destination.Categoryid = source.Categoryid;
-            //destination.Discontinued = source.Discontinued;
-            //destination.Categoryid = source.Categoryid;
-            //destination.Categoryname = source.Categoryname;
-            //destination.Supplierid = source.Supplierid;
-            //destination.Unitprice = source.Unitprice;
-
-
 
         }
 
@@ -76,13 +54,8 @@ namespace MyStore.Services
         }
         public CategoryModel AddCategory(CategoryModel newCategory)
         {
-            //Category addedCategory = mapper.Map<Category>(newCategory);
-            //return categoryRepository.Add(addedCategory);
-
             Category categoryToAdd = mapper.Map<Category>(newCategory);
             categoryRepository.Add(categoryToAdd);
-            //var addedCategory = categoryRepository.Add(categoryToAdd);
-            //newCategory = mapper.Map<CategoryModel>(addedCategory);
             return newCategory;
         }
         public void UpdateCategory(CategoryModel model)

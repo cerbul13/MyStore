@@ -73,7 +73,6 @@ namespace MyStore.Controllers
             var addedEmployee = employeeService.AddEmployee(newEmployee);
 
             return CreatedAtAction("Get", new { id = addedEmployee.Empid }, addedEmployee);
-            //return CreatedAtAction("Get", newEmployee,new { id = newEmployee.Employeeid });
         }
 
         // PUT api/<EmployeesController>/5
@@ -109,9 +108,6 @@ namespace MyStore.Controllers
             }
             employeeService.Delete(id);
             return NoContent();
-            //search the object with the id
-            //delete the object
-            //return no content
         }
     }
 }

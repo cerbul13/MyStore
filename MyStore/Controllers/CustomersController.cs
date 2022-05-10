@@ -60,7 +60,6 @@ namespace MyStore.Controllers
             var addedCustomer = customerService.AddCustomer(newCustomer);
             
             return CreatedAtAction("Get", new { id = addedCustomer.Custid }, addedCustomer);
-            //return CreatedAtAction("Get", newCustomer,new { id = newCustomer.Customerid });
         }
 
         // PUT api/<CustomersController>/5
@@ -94,9 +93,6 @@ namespace MyStore.Controllers
             }
             customerService.Delete(id);
             return NoContent();
-            //search the object with the id
-            //delete the object
-            //return no content
         }
     }
 }

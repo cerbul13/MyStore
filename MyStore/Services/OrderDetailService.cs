@@ -40,29 +40,6 @@ namespace MyStore.Services
             var orderDetailModels = mapper.Map<IEnumerable<OrderDetailModel>>(allOrderDetails);
 
             return orderDetailModels;
-            //for (int i = 0; i < allOrderDetails.Count(); i++)
-            //{
-            //    var orderDetailModel = new OrderDetailModel();
-            //    orderDetailModel.Categoryid = allOrderDetails[i].Categoryid;
-            //    orderDetailModel.OrderDetailid = allOrderDetails[i].OrderDetailid;
-            //    orderDetailModel.OrderDetailname = allOrderDetails[i].OrderDetailname;
-            //    orderDetailModel.Unitprice = allOrderDetails[i].Unitprice;
-            //    orderDetailModel.Discontinued = allOrderDetails[i].Discontinued;
-            //}
-
-            //1 la 1
-            //var source = new OrderDetail();
-            //var destination = new OrderDetailModel();
-
-            //destination.Categoryid = source.Categoryid;
-            //destination.Discontinued = source.Discontinued;
-            //destination.OrderDetailid = source.OrderDetailid;
-            //destination.OrderDetailname = source.OrderDetailname;
-            //destination.Supplierid = source.Supplierid;
-            //destination.Unitprice = source.Unitprice;
-
-
-
         }
 
         public OrderDetailModel GetById(int id)
@@ -76,13 +53,8 @@ namespace MyStore.Services
         }
         public OrderDetailModel AddOrderDetail(OrderDetailModel newOrderDetail)
         {
-            //OrderDetail addedOrderDetail = mapper.Map<OrderDetail>(newOrderDetail);
-            //return orderDetailRepository.Add(addedOrderDetail);
-
             OrderDetail orderDetailToAdd = mapper.Map<OrderDetail>(newOrderDetail);
             orderDetailRepository.Add(orderDetailToAdd);
-            //var addedOrderDetail = orderDetailRepository.Add(orderDetailToAdd);
-            //newOrderDetail = mapper.Map<OrderDetailModel>(addedOrderDetail);
             return newOrderDetail;
         }
         public void UpdateOrderDetail(OrderDetailModel model)

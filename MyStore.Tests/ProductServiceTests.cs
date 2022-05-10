@@ -18,9 +18,6 @@ namespace MyStore.Tests
         {
             mockProductRepository = new Mock<IProductRepository>();
             mockMapper = new Mock<IMapper>();
-            //var myProfile = new MyProfile();
-            //var configuration = new MapperConfiguration(cfg => cfg.AddProfile(myProfile));
-            //IMapper mapper = new Mapper(configuration);
         }
         [Fact]
         public void Should_Return_Count_and_Type_OnGetAll()
@@ -46,7 +43,6 @@ namespace MyStore.Tests
             var response = service.AddProduct(MultipleProductsModel()[1]);
             // Assert
             Assert.IsType<ProductModel>(response);
-            //Assert.IsType<CreatedAtActionResult>(response);
         }
         [Fact]
         public void ShouldReturn_Type_On_GetById()
@@ -59,7 +55,6 @@ namespace MyStore.Tests
             var response = service.GetById(MultipleProductsModel()[1].Productid);
             // Assert
             Assert.IsType<ProductModel>(response);
-            //Assert.IsType<CreatedAtActionResult>(response);
         }
         [Fact]
         public void ShouldReturn_Type_On_Exists()
@@ -76,7 +71,7 @@ namespace MyStore.Tests
         public void ShouldReturn_true_On_Delete()
         {
             ////arrange                     
-            mockProductRepository.Setup(x => x.Delete(It.IsAny<Product>())).Returns(true);//.Returns(Ok(MutipleProducts()[2]));
+            mockProductRepository.Setup(x => x.Delete(It.IsAny<Product>())).Returns(true);
             mockMapper.Setup(x => x.Map<ProductModel>(It.IsAny<Product>())).Returns(MultipleProductsModel()[1]);
             // Arrange
             var service = new ProductService(mockProductRepository.Object,mockMapper.Object);

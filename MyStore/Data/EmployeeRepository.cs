@@ -35,7 +35,7 @@ namespace MyStore.Data
         }
 
         public Employee GetById(int id)
-        {//return context.Employees.FirstOrDefault(x=>x.EmployeeId==id)
+        {
             try
             {
                 var result = context.Employees.FirstOrDefault(x => x.Empid == id);

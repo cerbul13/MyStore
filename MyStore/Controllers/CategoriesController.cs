@@ -73,7 +73,6 @@ namespace MyStore.Controllers
             var addedCategory = categoryService.AddCategory(newCategory);
 
             return CreatedAtAction("Get", new { id = addedCategory.Categoryid }, addedCategory);
-            //return CreatedAtAction("Get", newCategory,new { id = newCategory.Categoryid });
         }
 
         // PUT api/<CategorysController>/5
@@ -109,9 +108,6 @@ namespace MyStore.Controllers
             }
             categoryService.Delete(id);
             return NoContent();
-            //search the object with the id
-            //delete the object
-            //return no content
         }
     }
 }
