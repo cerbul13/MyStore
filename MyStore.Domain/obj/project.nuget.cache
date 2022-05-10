@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Mp8hUSJE7GM5l8QW+vV3oTLp4V3rSS5VGvUm4ZjMUd2F+TVoyLwhU2ZxeiCZ5QLLNsdkxejE0HoFCNcNqkoRew==",
+  "dgSpecHash": "kx6tih8uFtZBpkcH75QKdCYvr8iSWbtzqvlPZoLZr/KZLn9ZQiZq1LImke2cBZjf5HLyRn6CrymRs9nikfweWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dan\\source\\repos\\MyStore\\MyStore.Domain\\MyStore.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Dan Cerba\\source\\repos\\MyStore2\\MyStore.Domain\\MyStore.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
