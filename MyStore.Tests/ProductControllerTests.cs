@@ -35,7 +35,7 @@ namespace MyStore.Tests
         }
         [Fact]
         public async void Integration_Should_Return_Count_andOK_OnGetAll()
-        {
+        {//on integration tests we need to run the application from 2 separate instances so that we have also an active response swagger together with the run test.
             HttpClient client = new HttpClient();
             var config = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
@@ -52,6 +52,47 @@ namespace MyStore.Tests
             }
             Assert.Equal(12, ordersList.Count);
             Assert.Equal(System.Net.HttpStatusCode.OK, response.StatusCode);
+        }
+        [Fact]
+        public void Should_Return_OK_OnGetByID()
+        {
+            //arrange
+            int testSessionId = 1;
+            mockProductService.Setup(x => x.GetById(testSessionId))
+                .Returns(MultipleProducts()[testSessionId]);
+
+            var controller = new ProductsController(mockProductService.Object);
+
+            //act
+            var response = controller.GetProduct(testSessionId);
+
+            var result = response.Result as OkObjectResult;
+            var actualData = result.Value as ProductModel;
+
+            //assert
+            Assert.IsType<OkObjectResult>(result);
+            Assert.IsType<ProductModel>(actualData);
+        }
+
+        [Fact]
+        public void Should_Return_NotFoundResult_OnGetByID()
+        {
+            //arrange
+            int testSessionId = 10;
+            mockProductService.Setup(x => x.GetById(testSessionId)).Returns(NullProduct());
+
+            var controller = new ProductsController(mockProductService.Object);
+
+            //act
+            var response = controller.GetProduct(testSessionId);
+
+            //assert
+            Assert.IsType<NotFoundResult>(response.Result);
+            Assert.Null(response.Value);
+        }
+        private ProductModel? NullProduct()
+        {
+            return null;
         }
         [Fact]
         public void Should_Return_OK_OnGetAll()
