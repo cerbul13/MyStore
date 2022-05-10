@@ -10,8 +10,10 @@
 *.userosscache
 *.sln.docstates
 *.vs
-bin
-obj
+
+# Ignore any files in /bin and /obj Folders
+**/bin/*
+**/obj/*
 packages
 
 # User-specific files (MonoDevelop/Xamarin Studio)
